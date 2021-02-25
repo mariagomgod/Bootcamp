@@ -183,12 +183,12 @@
 
     <!-- Formularios/ Forms -->
 
-    <form action="" method="GET">
+    <form action="#" method="GET">
 
         <div class="inputBlock">
-            <label for="nameInput">Nombre</label><br>
+            <label for="nameInput">Nombre (*)</label><br>
             <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
-            <input type="text" id="nameInput" name="userName" placeholder="Introduce tu nombre">
+            <input required type="text" id="nameInput" name="userName" maxlength="8" placeholder="Introduce tu nombre">
         </div><br>
 
         <div class="inputBlock">
@@ -198,9 +198,9 @@
         </div><br>
 
         <div class="inputBlock">
-            <label for="emailInput">Email</label><br>
+            <label for="emailInput">Email: (*)</label><br>
             <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
-            <input type="email" id="emailInput" name="userEmail" placeholder="Introduce tu Email">
+            <input required type="email" id="emailInput" name="userEmail" placeholder="Introduce tu Email">
         </div><br>
 
         <div class="inputBlock">
@@ -215,6 +215,24 @@
             <textarea name="messageInput" id="messageInput" cols="58" rows="18"></textarea>
         </div><br>
 
+        <div class="inputBlock">
+            <label for="sexInput">Género</label><br>
+            <select name="sexInput" id="sexInput">
+                <option value="" hidden></option>
+                <option value="female">Femenino</option>
+                <option value="male">Masculino</option>
+                <option value="other">Otro</option>
+            </select>
+        </div>
+        <br><br>
+
+        <input id="ageInput" name="ageInput" type="number" value="42" min="0" max="120">
+        <input type="date">
+        <br><br>
+
+        <input type="submit" value="Guardar">
+
+        <br><br>
 
     </form>
 
