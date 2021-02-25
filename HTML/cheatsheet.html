@@ -49,91 +49,96 @@
     </pre>
 
     <p>
-        <span id="ingredientes">Lorem ipsum dolor sit amet</span>, consectetur adipisicing elit. <span class="ingredientes"> Molestiae, corporis!</span>
+        <span id="ingredientes">Lorem ipsum dolor sit amet</span>, consectetur adipisicing elit. <span
+            class="ingredientes"> Molestiae, corporis!</span>
 
     </p>
 
     <p>
-    La molécula preferida de <strong>cualquier desarrollador es</strong> C<sub>8</sub>, también conocida como cafeína.</p>
+        La molécula preferida de <strong>cualquier desarrollador es</strong> C<sub>8</sub>, también conocida como
+        cafeína.</p>
     </p>
 
     <p>El teorema de pitágoras se conoce por la ecuación de:
 
     <p><var>a</var><sup>2</sup> + <var>b</var><sup>2</sup> = <var>c</var><sup>2</sup></p>
-        
+
     </p>
 
     <p>Las clases del Bootcamp empiezan a las <time datetime="09:30">09:30</time></p>
     <p>El primer día fue el <time datetime="2021-02-01">1 de febrero</time></p>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
 
     <!-- Contenedore/ Containers -->
 
-   <nav>
-       <a href="">Enlace 1</a>
-       <a href="">Enlace 2</a>
-       
-   </nav>
+    <nav>
+        <a href="">Enlace 1</a>
+        <a href="">Enlace 2</a>
 
-   <section>
-       <article>
-           <h1>Título del artículo</h1>
-           <p>Contenido del artículo</p>
-       </article>
-       <a href="">Leer más</a>
-   </section>
+    </nav>
 
-   <!-- El aside es un menú lateral o barra lateral en la que hay otros enlaces, otras noticias, etc -->
-   <aside>
-       <p>Menú generalmente lateral</p>
-   </aside>
+    <section>
+        <article>
+            <h1>Título del artículo</h1>
+            <p>Contenido del artículo</p>
+        </article>
+        <a href="">Leer más</a>
+    </section>
 
-  <footer>
-      <p>Pie de página</p>
-      <address>Málaga, 29087</address>
-  </footer>
+    <!-- El aside es un menú lateral o barra lateral en la que hay otros enlaces, otras noticias, etc -->
+    <aside>
+        <p>Menú generalmente lateral</p>
+    </aside>
 
-  <div class="container">
-      <p>Contenedor genérico para agrupar elementos</p>
+    <footer>
+        <p>Pie de página</p>
+        <address>Málaga, 29087</address>
+    </footer>
+
+    <div class="container">
+        <p>Contenedor genérico para agrupar elementos</p>
     </div>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
 
     <!-- Listas/ Lists -->
 
     <!-- Lista desordenada -->
-     <ul>
-         <li>Elemento 1</li>
-         <li>Elemento 2</li>
-         <li>Elemento 3</li>
-         <ul>
-             <li>Elemento</li>
-             <li>Elemento</li>
-         </ul>
-         <li>Elemento 4</li>
-         <li>Elemento 5</li>
-     </ul> 
-     
-     <!-- Lista ordenada -->
-    <ol>
-         <li>Elemento</li>
-         <li>Elemento
-             <ul>
-                 <li>Elemento</li>
-                 <li>Elemento</li>
-             </ul>
-         </li>
-         <li>Elemento</li>
-     </ol>
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+        <ul>
+            <li>Elemento</li>
+            <li>Elemento</li>
+        </ul>
+        <li>Elemento 4</li>
+        <li>Elemento 5</li>
+    </ul>
 
-     <ol start="500">
+    <!-- Lista ordenada -->
+    <ol>
+        <li>Elemento</li>
+        <li>Elemento
+            <ul>
+                <li>Elemento</li>
+                <li>Elemento</li>
+            </ul>
+        </li>
+        <li>Elemento</li>
+    </ol>
+
+    <ol start="500">
         <li>Elemento</li>
         <li>Elemento</li>
         <li>Elemento</li>
     </ol>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
 
     <!-- Tablas/ Tables -->
 
@@ -145,7 +150,7 @@
                 <th>Edad</th>
             </tr>
         </thead>
-        
+
         <tbody>
             <tr>
                 <td>Maria</td>
@@ -162,9 +167,57 @@
                 <td>og@codespaceacademy.com</td>
                 <td>40</td>
             </tr>
+
         </tbody>
-        
+        <tfoot>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Edad</th>
+            </tr>
+        </tfoot>
     </table>
+
+    <br>
+    <hr><br>
+
+    <!-- Formularios/ Forms -->
+
+    <form action="" method="GET">
+
+        <div class="inputBlock">
+            <label for="nameInput">Nombre</label><br>
+            <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
+            <input type="text" id="nameInput" name="userName" placeholder="Introduce tu nombre">
+        </div><br>
+
+        <div class="inputBlock">
+            <label for="lastNameInput">Apellidos</label><br>
+            <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
+            <input type="text" id="lastNameInput" name="lastName" placeholder="Introduce tus apellidos">
+        </div><br>
+
+        <div class="inputBlock">
+            <label for="emailInput">Email</label><br>
+            <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
+            <input type="email" id="emailInput" name="userEmail" placeholder="Introduce tu Email">
+        </div><br>
+
+        <div class="inputBlock">
+            <label for="passwordInput">Contraseña</label><br>
+            <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
+            <input type="password" id="passwordInput" name="passwordInput" placeholder="********">
+        </div><br>
+
+        <div class="inputBlock">
+            <label for="messageInput">Mensaje</label><br>
+            <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
+            <textarea name="messageInput" id="messageInput" cols="58" rows="18"></textarea>
+        </div><br>
+
+
+    </form>
+
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
