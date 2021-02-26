@@ -277,11 +277,38 @@
             </div>
         </fieldset>
 
+        <fieldset>
+            <legend>Productos</legend>
+            <div>
+                <input type="checkbox" name="iphoneProduct" id="iphoneProduct">
+                <label for="iphoneProduct">iPhone</label>
+            </div>
+            <div>
+                <input type="checkbox" name="macbookProduct" id="macbookProduct">
+                <label for="macbookProduct">Macbook Pro</label>
+            </div>
+            <div>
+                <input type="checkbox" name="airpodsProduct" id="airpodsProduct">
+                <label for="airpodsProduct">Airpods</label>
+            </div>
+        </fieldset>
+
+        <label for="rangeInput">Seleccione cantidad de elementos</label>
+        <input type="range" name="rangeInput" id="rangeInput">
+
         <br><br>
 
+        <label for="">Cantidad de gasolina</label>
+        <meter min="0" max="100" low="33" id="fuelLevel" value="60"></meter>
+
+        <label for="progressInput">Progreso</label>
+        <progress max="100" value="33" id="progressInput">60</progress>
+
+        <br><br>
 
         <input type="submit" value="Guardar">
-
+        <input type="reset" value="Vaciar">
+        
         <br><br>
 
     </form>
