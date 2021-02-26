@@ -226,9 +226,27 @@
         </div>
         <br><br>
 
-        <input id="ageInput" name="ageInput" type="number" value="42" min="0" max="120">
-        <input type="date">
+        <div class="inputBlock">
+            <label for="ageInput">Edad</label>
+            <input id="ageInput" name="ageInput" type="number" value="42" min="0" max="120">
+
+            <label for="birthdayInput">Fecha de nacimiento</label>
+            <input type="date" id="birthdayInput" name="birthdayInput">
+        </div>
+
+        <div class="inputBlock">
+            <label for="carBrandsInput">La marca de tu coche</label>
+            <input type="text" id="carBrandsInput" name="carBrand" list="carBrandList">
+            <datalist id="carBrandList">
+                <option value="bmw">BMW</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="ford">Ford</option>
+                <option value="volkswagen">Volkswagen</option>
+            </datalist>
+        </div>
+
         <br><br>
+
 
         <input type="submit" value="Guardar">
 
