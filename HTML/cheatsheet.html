@@ -245,6 +245,38 @@
             </datalist>
         </div>
 
+        <fieldset disabled>
+            <legend>Información de tu pareja</legend>
+            <div class="inputBlock">
+                <label for="nameInput">Nombre (*)</label><br>
+                <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
+                <input required type="text" id="nameInput" name="userName" maxlength="8"
+                    placeholder="Introduce tu nombre">
+            </div><br>
+
+            <div class="inputBlock">
+                <label for="lastNameInput">Apellidos</label><br>
+                <!-- El id no se puede repetir y el name si, y es el nombre que le vamos a enviar al servidor -->
+                <input type="text" id="lastNameInput" name="lastName" placeholder="Introduce tus apellidos">
+            </div><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Estado civil</legend>
+            <div>
+                <input type="radio" name="civilState" id="marriedInput">
+                <label for="marriedInput">Casado</label>
+            </div>
+            <div>
+                <input type="radio" name="civilState" id="singleInput">
+                <label for="singleInput">Soltero</label>
+            </div>
+            <div>
+                <input type="radio" name="civilState" id="divorcedInput">
+                <label for="divorcedInput">Divorciado</label>
+            </div>
+        </fieldset>
+
         <br><br>
 
 
