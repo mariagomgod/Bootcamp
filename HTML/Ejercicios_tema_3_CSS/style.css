@@ -29,5 +29,29 @@ span.normal {
     font-weight: bold; 
 }
 
+div.posicionamiento {
+    border: 1px solid #859494;
+    background-color:#f7f7f7;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
 
+div.listas > ul > li {
+    border: 1px solid #859494;
+    background-color: #f7f7f7;
+    padding: 3px;
+    font-family: 'Times New Roman', Arial, Helvetica, sans-serif; 
+    cursor: pointer;
+    vertical-align: middle;
+}
 
+div.listas > ul {
+    list-style-image: url('imagenes_css/flecha_sin_seleccionar.png'); 
+    list-style-position: inside;
+}
+
+div.listas > ul > li:hover {
+    background-color: #e7e7e7;
+    list-style-image: url('imagenes_css/flecha_seleccionada.png'); 
+}
