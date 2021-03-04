@@ -100,3 +100,12 @@ div.listas > ul > li:hover {
 .box-5, .box-6, .box-5 p, .box-6 p {
     display: inline;
 }
+
+/* Centrar horizontalmente (eje X) */
+
+.x-centered {
+    background-color: teal;
+    height: 50px;
+    width: 25%;
+    margin: auto;
+} /* margin: auto, centra horizontalmente el contenedor */
