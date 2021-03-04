@@ -6,6 +6,30 @@ p {
     color: #555;
 }
 
+/*height: 50vh;*/
+
+/*background-image sirve para poner una imagen de fondo y dentro de los paréntesis de la url ponemos dónde se encuentra la imagen a poner de fondo */
+/* background-image: url(); */
+
+/* eje x: left center right // eje y: top center bottom
+background-position: center bottom; */
+
+/* background-attachment: fixed; */
+
+/* Cuando la imagen es más pequeña que el contenedor */
+/* background-repeat: no-repeat;
+background-size: contain; */
+
+/* Márgenes */
+/* margin: 10px;
+margin-right: 10px;
+margin-bottom: 10px;
+margin-left: 10px;
+margin-top: 10px; */
+
+/* padding: 100 px //bottom y top 25px // left y right
+padding: 100 px 25px 50px 2px //va en sentido de las agujas del reloj; top, right, bottom, left */
+
 #primero p { 
     color: #336699;
 }
@@ -54,4 +78,25 @@ div.listas > ul {
 div.listas > ul > li:hover {
     background-color: #e7e7e7;
     list-style-image: url('imagenes_css/flecha_seleccionada.png'); 
+}
+
+/* Posicionamiento */
+
+/* Tipos de Display: none, inline, block, inline-block */
+
+[class^="box"] {
+    background-color: steelblue;
+
+} /*El sombrerito ^ que se pone delante del = significa que se aplique a todas las clases que empiecen por "box" */
+
+.box-0 {
+    display: none; 
+} /* display: none se utiliza para ocultar elementos */
+
+.box-3, .box-4, .box-3 p, .box-4 p {
+    display: inline-block;
+}
+
+.box-5, .box-6, .box-5 p, .box-6 p {
+    display: inline;
 }
