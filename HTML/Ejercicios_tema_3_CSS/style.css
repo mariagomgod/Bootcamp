@@ -1,10 +1,10 @@
-* { 
+/* * { 
     font: 1em/1.3 Arial, Helvetica, sans-serif; 
-}
+} */
 
 p { 
     color: #555;
-}
+} 
 
 /*height: 50vh;*/
 
@@ -34,8 +34,8 @@ padding: 100 px 25px 50px 2px //va en sentido de las agujas del reloj; top, righ
     color: #336699;
 }
 
-a {
-    color: #CC3300; 
+/* a {
+    color: #CC3300; */ 
 }
 
 #primero em { 
@@ -248,3 +248,22 @@ div.listas > ul > li:hover {
     margin-top: 10px;
     box-sizing: border-box;
 }
+
+h1 {
+    border: 2px solid gray;
+    width: 100%;
+    padding: 25px;
+    float: left; 
+
+}
+
+.inputBlock {
+    float: right;
+
+}
+
+.p-f-parent {
+    border: 2px solid gray;
+}
+
+
