@@ -101,11 +101,72 @@ div.listas > ul > li:hover {
     display: inline;
 }
 
-/* Centrar horizontalmente (eje X) */
-
-.x-centered {
+.rectangle {
     background-color: teal;
     height: 50px;
     width: 25%;
+}
+
+/* Centrar horizontalmente (eje X) */
+
+.x-centered {
     margin: auto;
 } /* margin: auto, centra horizontalmente el contenedor */
+
+/* Posición relativa */
+
+.pos-relative {
+    position: relative;
+    left: 100px;
+    top: -50px;
+    z-index: -1;
+}
+
+/* Posición absoluta */
+
+.pos-absolute-parent {
+    height: 300px;
+    border: 15px solid tomato;
+    position: relative;
+}
+
+.pos-absolute-child {
+    height: 50px;
+    width: 50px;
+    background-color: #333;
+    position: absolute; /* posición absoluta respecto al padre */
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+}
+
+/* Posición fija/ fixed */
+
+.pos-fixed {
+    background-color: #333;
+    padding: 20px 30px;
+    position: fixed; /* el botón se quedaría fijo respecto a la página */
+    bottom: 30px;
+    right: 30px;
+    z-index: 1;
+}
+
+.pos-fixed a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Posición sticky */ 
+
+.pos-sticky {
+    background-color: steelblue;
+    padding: 15px 25px;
+    position: sticky; /* Se queda el texto fijo mientras no muevas el scroll hacia abajo, si lo haces, el texto se va escondiendo, sigue al scroll */ 
+    top: 0;
+}
+
+.pos-sticky a {
+    text-decoration: none;
+    color: white;
+}
