@@ -84,8 +84,8 @@ div.listas > ul > li:hover {
 
 /* Tipos de Display: none, inline, block, inline-block */
 
-[class^="box"] {
-    background-color: steelblue;
+/*[class^="box"] {
+    background-color: steelblue;*/
 
 } /*El sombrerito ^ que se pone delante del = significa que se aplique a todas las clases que empiecen por "box" */
 
@@ -169,4 +169,76 @@ div.listas > ul > li:hover {
 .pos-sticky a {
     text-decoration: none;
     color: white;
+}
+
+/* Posicionamiento flotante: divs dentro de otros divs */
+
+.pos-float-parent {
+    border: 5px solid royalblue;
+    color: white;
+    /* overflow: hidden; sirve para controlar el desbordamiento. Respeta, por tanto, todo el contenido (para que el padre no colapse si todos los hijos son flotantes. Se le obliga que respete a los hijos */
+}
+
+.pos-float-child-1 {
+    background-color: brown;
+    height: 100px;
+    width: 33.3%;
+    float: left;
+}
+
+.pos-float-child-2 {
+    background-color: darkblue;
+    height: 100px;
+    width: 33.3%;
+    float: left; 
+}
+
+.pos-float-child-3 {
+    background-color: darkorange;
+    height: 100px;
+    width: 33.3%;
+    float: left; 
+}
+
+.pos-float-child-4 {
+    background-color: yellowgreen;
+    height: 50px;
+    width: 100%;
+    clear: both; /* Garantiza que no va a colapsar un flotante y empieza en una línea limpia */
+}
+
+/* Overflow - Gestión del desbordamiento del contenido */
+
+[class^="overflow-parent"] {
+    width: 200px;
+    height: 100px;
+    border: 3px dashed black;
+    margin-bottom: 150px;
+}
+
+.overflow-parent-1 {
+   overflow: hidden;
+}
+
+.overflow-parent-2 {
+    overflow: visible;
+}
+
+.overflow-parent-3 {
+    overflow: scroll;
+}
+
+/* Tamaño de cajas (box-sizing) */
+
+.box-sizing-parent {
+    width: 200px;
+    height: 200px;
+    border: 10px solid goldenrod;
+}
+
+.box-sizing-child {
+    width: 100%;
+    height: 50px;
+    background-color: gray;
+    border: 10px solid darkolivegreen;
 }
