@@ -241,4 +241,10 @@ div.listas > ul > li:hover {
     height: 50px;
     background-color: gray;
     border: 10px solid darkolivegreen;
+    box-sizing: content-box; /* valor por defecto */
+}
+
+.border-box {
+    margin-top: 10px;
+    box-sizing: border-box;
 }
