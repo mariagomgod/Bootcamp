@@ -35,8 +35,8 @@ padding: 100 px 25px 50px 2px //va en sentido de las agujas del reloj; top, righ
 }
 
 /* a {
-    color: #CC3300; */ 
-}
+    color: #CC3300;  
+} */
 
 #primero em { 
     background: #FFFFCC; 
@@ -53,41 +53,12 @@ span.normal {
     font-weight: bold; 
 }
 
-div.posicionamiento {
-    border: 1px solid #859494;
-    background-color:#f7f7f7;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-div.listas > ul > li {
-    border: 1px solid #859494;
-    background-color: #f7f7f7;
-    padding: 3px;
-    font-family: 'Times New Roman', Arial, Helvetica, sans-serif; 
-    cursor: pointer;
-    vertical-align: middle;
-}
-
-div.listas > ul {
-    list-style-image: url('imagenes_css/flecha_sin_seleccionar.png'); 
-    list-style-position: inside;
-}
-
-div.listas > ul > li:hover {
-    background-color: #e7e7e7;
-    list-style-image: url('imagenes_css/flecha_seleccionada.png'); 
-}
-
-/* Posicionamiento */
-
-/* Tipos de Display: none, inline, block, inline-block */
+/* Posicionamiento. Tipos de Display: none, inline, block, inline-block */
 
 /*[class^="box"] {
     background-color: steelblue;*/
 
-} /*El sombrerito ^ que se pone delante del = significa que se aplique a todas las clases que empiecen por "box" */
+/*El sombrerito ^ que se pone delante del = significa que se aplique a todas las clases que empiecen por "box" */
 
 .box-0 {
     display: none; 

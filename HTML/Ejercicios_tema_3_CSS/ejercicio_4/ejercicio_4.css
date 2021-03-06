@@ -1,0 +1,78 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.border {
+    border: 2px solid gray;
+}
+
+.padded {
+    padding: 0.5vw;
+}
+
+h1 {
+    padding-left: 0.5vw;
+}
+
+#lookForInput {
+    border-style: 2px 1px 1px 2px;
+    border-color: lightyellow;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.newsList {
+    list-style: none;
+    padding-left: 0;
+}
+
+p, h1, h2, ul {
+    margin: 0;
+}
+
+header, footer {
+    height: 4vh;
+    line-height: 4vh;
+}
+
+h2 {
+    clear: both;
+}
+
+.photo {
+    width: 150px;
+    margin: 8px;
+    border: 1px solid black;
+}
+
+#main-column {
+    margin-right: 5px; 
+    width: 85%;
+}
+
+#left-column {
+    margin: 5px 8px 8px 0; 
+    width: 12%;
+}
+
+#center {
+    margin-top: 5px; 
+}
+
+.auto-width {
+    overflow: hidden;
+}
+
+.article {
+    margin-top: 8px;
+}
+
+#ads {
+    margin-top: 30px;
+}
