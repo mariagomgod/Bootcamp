@@ -1,10 +1,4 @@
-/* * { 
-    font: 1em/1.3 Arial, Helvetica, sans-serif; 
-} */
 
-p { 
-    color: #555;
-} 
 
 /*height: 50vh;*/
 
@@ -30,28 +24,7 @@ margin-top: 10px; */
 /* padding: 100 px //bottom y top 25px // left y right
 padding: 100 px 25px 50px 2px //va en sentido de las agujas del reloj; top, right, bottom, left */
 
-#primero p { 
-    color: #336699;
-}
 
-/* a {
-    color: #CC3300;  
-} */
-
-#primero em { 
-    background: #FFFFCC; 
-    padding: .1em;
-}
-
-em.especial {
-    background: #FFCC99; 
-    border: 1px solid #FF9900; 
-    padding: .1em;
-}
-
-span.normal {
-    font-weight: bold; 
-}
 
 /* Posicionamiento. Tipos de Display: none, inline, block, inline-block */
 
