@@ -11,6 +11,7 @@ div.listas > ul > li {
 div.listas > ul {
     list-style-image: url('imagenes_css/flecha_sin_seleccionar.png'); 
     list-style-position: inside;
+    width: 25%;
 }
 
 div.listas > ul > li:hover {
