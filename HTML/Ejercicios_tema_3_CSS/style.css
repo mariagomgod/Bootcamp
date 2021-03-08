@@ -210,4 +210,9 @@ h1 {
     border: 2px solid gray;
 }
 
+p::first-letter {
+    font-size: 3em;
+    color: crimson;
+} /* no existen individualmente en html, es decir, no tienen etiqueta, pero se puede utlizar en un determinado momento */
+
 
