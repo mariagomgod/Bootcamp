@@ -216,3 +216,25 @@ p::first-letter {
 } /* no existen individualmente en html, es decir, no tienen etiqueta, pero se puede utlizar en un determinado momento */
 
 
+/* Media queries. Se ponen en último lugar en el css */
+
+.responsive { /* Escritorio/ Desktop */
+    height: 100px;
+    background-color: aquamarine;
+    width: 30%;
+}
+
+@media only screen and (max-width: 920px) { /* Tablet */
+    .responsive {
+        width: 500%;
+    }
+}
+
+
+@media only screen and (max-width: 700px) { /* Móviles/ Mobile */
+    .responsive {
+        width: 100%;
+    }
+}
+
+/* Si queremos empezar a diseñar para los móviles, en lugar de utilizar max-width, utilizamos min-width */

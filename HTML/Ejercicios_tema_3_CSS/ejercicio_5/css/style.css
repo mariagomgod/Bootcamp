@@ -1,0 +1,71 @@
+body {
+    color: #fff;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    padding: 5px 50px;
+}
+
+.brand-banner {
+    background-color: coral;
+}
+
+.navbar {
+    background-color: #333;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 10px;
+    padding-right: 15px;
+}
+
+.img-header {
+    background-image: url(../imagenes/cielo.jpg);
+    text-align: center;
+    background-position: center right;
+}
+
+.img-header h1 {
+    font-size: 3em;
+    line-height: 1.6em;
+    margin: 30px;
+}
+
+
+.left {
+    color: black;
+    float: left;
+    width: 75%;
+}
+
+.right {
+    color: black;
+    float:right;
+    width: 23%;
+    background-color: blanchedalmond;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+footer {
+    clear: both;
+    text-align: center;
+}
+
+.bottom {
+    padding: 25px 0 25px 0;
+}
