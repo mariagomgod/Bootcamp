@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: white;
+    font-size: 3em;
+    line-height: 2em;
+    margin: 0;
+}
+
+h2 {
+    color: white;
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
+    height: 7vh;
+    line-height: 7vh;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+article {
+    text-align: justify;
+}
+
+footer div {
+    text-align: center;
+}
+
+footer {
+    clear: both;
+}
+
+.wrapper {
+    background-color: wheat;
+    padding: 30px 120px 60px 150px;
+    overflow: hidden;
+}
+
+.container {
+    background-color: coral;
+    padding-left: 40px;
+}
+
+.navbar, footer {
+    background-color: black;
+    margin: 0;
+    height: 7vh;
+    line-height: 7vh;
+    
+}
+
+.img-header {
+    background-image: url(../imagen/naranja.jpg);
+    text-align: center;
+    padding: 80px 0 40px 0;
+}
+
+.box {
+    background-color: black;
+    color: white;
+}
+
+.left {
+    float: left;
+    width: 70%;
+}
+
+.right {
+    float: right;
+    width: 22%;
+}
+
+@media only screen and (max-width: 1023px) {
+    article.left, article.right {
+        float: none;
+        width: 100%;
+        font-size: 70%;
+    }
+
+    .wrapper {
+        padding: 10px;
+    }
+
+    nav.navbar {
+        padding: 0;
+        text-align: center;
+        font-size: 80%;
+        height: 4vh;
+        line-height: 4vh;
+    }
+
+    div.img-header {
+        padding: 5px;
+        font-size: 30%;
+    }
+
+    footer {
+        font-size: 60%;
+        height: 4vh;
+        line-height: 4vh;
+    }
+    
+}
