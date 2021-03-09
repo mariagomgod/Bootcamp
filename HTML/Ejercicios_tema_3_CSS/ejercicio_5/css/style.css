@@ -68,3 +68,22 @@ footer {
 .bottom {
     padding: 25px 0 25px 0;
 }
+
+@media only screen and (max-width: 758px) {
+    aside {
+        float: none;
+        width: 100%;
+    }
+
+    .img-header {
+        font-size: 2em;
+        line-height: 1.3em;
+        margin: 20px 5px;
+    }
+
+    .navbar li {
+        display: block;
+        margin-top: 15px;
+    }
+
+}
