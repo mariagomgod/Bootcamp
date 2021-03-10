@@ -72,6 +72,7 @@ padding: 100 px 25px 50px 2px //va en sentido de las agujas del reloj; top, righ
     height: 300px;
     border: 15px solid tomato;
     position: relative;
+    
 }
 
 .pos-absolute-child {
