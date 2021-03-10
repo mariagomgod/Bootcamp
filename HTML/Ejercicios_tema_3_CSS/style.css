@@ -238,3 +238,67 @@ p::first-letter {
 }
 
 /* Si queremos empezar a diseñar para los móviles, en lugar de utilizar max-width, utilizamos min-width */
+
+/* Flexbox */
+
+.flex-parent {
+    height: 250px;
+    border: 2px solid #333;
+    display: flex;
+    /*flex-direction: row; /* row significa fila */
+    /*flex-wrap: wrap; /*cuando no quepa todo el contenido, el último que no quepa te lo envía automáticamente a la siguiente línea*/
+    /*flex-flow: row wrap; atajo para combinar ambas propiedades que hemos utilizado justo arriba*/
+    justify-content: center;
+    justify-content: flex-start;
+    justify-content: flex-end;
+    justify-content: space-around; /*sirve para dar más aire por dentr a los elementoos*/
+    justify-content: space-between;
+    justify-content: space-evenly; /*reparte los espacios de forma equitativa*/
+
+    /*align-items: center;
+    align-items: flex-start;
+    align-items: flex-end;
+    align-items: stretch; /*los hijos se expanden verticalmente*/
+}
+
+.flex-child {
+    width: 250px;
+    display: flex; /*hemos convertido cada caja en un contenedor flex*/
+    justify-content: center; /* el contenido se centra horizontalmente*/
+    align-items: center; /*el contenido se centra verticalmente*/
+}
+
+.flex-parent > div:nth-child(odd) { /* odd seleciona los impares */
+    background-color: #ddd;
+    color:#333;
+}
+
+.flex-parent > div:nth-child(even) { /* even selecciona los pares */
+    background-color: #333;
+    color:#ddd;
+}
+
+.flex-child-1 {
+    /*flex-grow: 0;
+    flex-shrink: 2;
+    flex-basis: 250px;*/
+    flex: 0 2 auto;
+}
+
+.flex-child-2 {
+    /*flex-grow: 1;
+    flex-shrink: 3;
+    flex-basis: 250px;*/
+    flex: 1 3 auto;
+    align-self: center; /*sobreescribe lo que diga el padre. Hay que tener cuidado a la hora de utilizarlo*/
+}
+
+.flex-child-3 {
+    /*flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 250px;*/
+    flex: 2 1 250px;
+}
+
+
+
