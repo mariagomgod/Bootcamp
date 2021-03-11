@@ -240,7 +240,7 @@ p::first-letter {
 
 /* Si queremos empezar a diseñar para los móviles, en lugar de utilizar max-width, utilizamos min-width */
 
-/* Flexbox */
+/* Flexbox */ /* Por defecto todos los elementos flex tienen un flex-grow: 0;*/
 
 .flex-parent {
     height: 250px;
@@ -300,6 +300,77 @@ p::first-letter {
     flex-basis: 250px;*/
     flex: 2 1 250px;
 }
+
+/* CSS Grid básico con medias queries */
+
+[class^="grid-child"] {
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-parent {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr; /* para repetir este mismo patrón pondríamos la propiedad repeat(2, 1fr, 2fr). Este ejemplo significa que me repita dos veces ese patrón, el primer número es el número de veces que queremos repetir*/
+    gap: 10px; /*para dar espacio. Crea una intersección*/
+}
+
+@media only screen and (max-width: 920px) {
+    .grid-parent {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .grid-parent {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*CSS Grid por líneas*/
+
+.grid-parent-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.grid-parent-2 > .grid-child-1 {
+    grid-column: 1 / 3; /* significa de la línea 1 a la 3 */
+    grid-row: 1; /* equivalente a grid-row: 1 / 2 (fila) */
+}
+
+.grid-parent-2 > .grid-child-2 {
+    grid-column: 3; 
+    grid-row: 1 / 3; 
+}
+
+.grid-parent-2 > .grid-child-3 {
+    grid-column: 1 / 3; 
+    grid-row: 2 / 5; 
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.grid-parent-2 > .grid-child-4 {
+    grid-column: 3; 
+    grid-row: 3; 
+}
+
+.grid-parent-2 > .grid-child-5 {
+    grid-column: 2 / 4; 
+    grid-row: 4; 
+}
+
+.grid-parent-2 > .grid-child-6 {
+    grid-column: 1; 
+    grid-row: 2; 
+}
+
+
 
 
 
