@@ -1,0 +1,36 @@
+.grid-parent {
+    display: grid;
+    gap: 10px;
+
+    grid-template-rows: 1fr 2fr 1fr 1fr;
+
+    grid-template-areas: "page-title page-title" 
+                         "main-content masthead"
+                         "main-content sidebar"
+                         "footer-content footer-content"; 
+}
+
+.grid-parent > .page-title {
+    grid-area: page-title;
+    background-color: cyan;
+}
+
+.grid-parent > .main-content {
+    grid-area: main-content;
+    background-color: violet;
+}
+
+.grid-parent > .masthead {
+    grid-area: masthead;
+    background-color:mediumseagreen;
+}
+
+.grid-parent > .sidebar {
+    grid-area: sidebar;
+    background-color: lightsteelblue;
+}
+
+.grid-parent > .footer-content {
+    grid-area: footer-content;
+    background-color: lightyellow;
+}

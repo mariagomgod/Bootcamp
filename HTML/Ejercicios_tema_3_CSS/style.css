@@ -313,6 +313,7 @@ p::first-letter {
 .grid-parent {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    /*grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); minmax significa el mínimo y el máximo que queremos especificar y auto-fit te va a colocar automáticamente las columnas hasta que quepan en el minmax que hemos espcificado*/
     grid-template-rows: 1fr 2fr; /* para repetir este mismo patrón pondríamos la propiedad repeat(2, 1fr, 2fr). Este ejemplo significa que me repita dos veces ese patrón, el primer número es el número de veces que queremos repetir*/
     gap: 10px; /*para dar espacio. Crea una intersección*/
 }
@@ -327,7 +328,7 @@ p::first-letter {
     .grid-parent {
         grid-template-columns: 1fr;
     }
-}
+} 
 
 /*CSS Grid por líneas*/
 
@@ -370,7 +371,39 @@ p::first-letter {
     grid-row: 2; 
 }
 
+/* CSS Grid por áreas */
 
+.grid-parent-3 {
+    display: grid;
+    gap: 10px;
+
+    grid-template-columns: 150px 1fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+
+    grid-template-areas: "nav nav ." /* podemos poner un . en uno de los huecos para decir que ese hueco quede en blanco*/
+                         "content1 content2 content3"
+                         "footer footer footer"; /*disposición de lo que queremos con el nombre que queramos*/
+}
+
+.grid-parent-3 > .grid-child-1 {
+    grid-area: nav;
+}
+
+.grid-parent-3 > .grid-child-2 {
+    grid-area: content1;
+}
+
+.grid-parent-3 > .grid-child-3 {
+    grid-area: content2;
+}
+
+.grid-parent-3 > .grid-child-4 {
+    grid-area: content3;
+}
+
+.grid-parent-3 > .grid-child-5 {
+    grid-area: footer;
+}
 
 
 
