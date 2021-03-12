@@ -443,3 +443,62 @@ p::first-letter {
     width: 50%;
     box-shadow: 10px 5px 15px black; /* horizontal, vertical, desenfoque, color*/
 }
+
+/*Transformaciones*/
+
+.transform {
+    height: 100px;
+    width: 100px;
+    background-color: #333;
+    transform: translate(300px, -20px) rotate(45deg) scale(0.8) skew(25deg);
+}
+
+/*Transiciones*/
+
+.transitions {
+    height: 100px;
+    width: 100px;
+    margin-left: 100px;
+    background-color: darkcyan;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*transition-property: transform;*/
+    /*transition-duration: 0.3s;*/
+    /*transition-delay: 1s;*/
+    /*transition-timing-function: ease-in-out;*/
+    transition: transform 0.5s ease-in;
+
+}
+
+.transitions:hover {
+    transform: scale(1.3) rotate(3deg);
+}
+
+/* Animaciones */
+
+.text-animation {
+    animation-name: slidein;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        color: red;
+    }
+
+    50% {
+        margin-left: 0%;
+        color: white;
+    }
+
+    to {
+        margin-left: 100%;
+        color: red;
+    }
+}
