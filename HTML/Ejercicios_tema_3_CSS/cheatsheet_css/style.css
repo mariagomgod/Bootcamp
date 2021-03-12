@@ -405,5 +405,41 @@ p::first-letter {
     grid-area: footer;
 }
 
+/* Iconos/ Icons */
 
+.menu-icon {
+    color: blue;
+}
 
+.side-icon {
+    color: crimson;
+}
+
+.carro-icon {
+    color: green;
+}
+
+/*Degradados o gradientes de color*/
+
+[class^="gradient"] {
+    height: 500px;
+    margin-bottom: 10px;
+}
+
+.gradient-1 {
+    background: linear-gradient(to right, darkblue, white);
+}
+
+.gradient-2 {
+    background: linear-gradient(to bottom, white, darkblue 20%, white);
+}
+
+.gradient-3 {
+    background: linear-gradient(to bottom, black, white, url());
+} /* también puedes poner una imagen en la url y te degrada la imagen*/
+
+.gradient-4 {
+    background: radial-gradient(white, blue, red);
+    width: 50%;
+    box-shadow: 10px 5px 15px black; /* horizontal, vertical, desenfoque, color*/
+}
