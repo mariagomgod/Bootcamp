@@ -1,0 +1,57 @@
+:root {
+    --purple-light: #7e3af2;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Ubuntu bold', Arial, Helvetica, sans-serif;
+}
+
+.grid-parent {
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr;
+}
+
+a {
+    background-color: var(--purple-light);
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    padding: 0 200px 0 150px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 300px 10px 10px;
+}
+
+#product, #viewMore {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--purple-light);
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#searchInput {
+    padding-left: 1.7em;
+}
+
+.bell {
+    color: var(--purple-light);
+}
+
+.fa-search {
+    position: relative;
+    left: 1.7em;
+}
+
+ul > li {
+    list-style: none;
+    margin: 0;
+}
