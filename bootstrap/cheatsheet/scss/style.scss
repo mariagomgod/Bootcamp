@@ -4,5 +4,19 @@ div {
     a {
         color: white;
     }
+
+    button {
+        height: 100%;
+    }
 }
+
+$columns: 5;
+
+@for $i from 1 through $columns {
+    .columns-#{Si} {
+        width:(100% / $i);
+    }
+}
+
+
 

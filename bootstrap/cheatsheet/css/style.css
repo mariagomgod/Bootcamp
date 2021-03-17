@@ -4,5 +4,26 @@ div {
 div a {
   color: white;
 }
+div button {
+  height: 100%;
+}
 
-/*# sourceMappingURL=style.css.map */
+.columns-Si {
+  width: 100%;
+}
+
+.columns-Si {
+  width: 50%;
+}
+
+.columns-Si {
+  width: 33.3333333333%;
+}
+
+.columns-Si {
+  width: 25%;
+}
+
+.columns-Si {
+  width: 20%;
+}
