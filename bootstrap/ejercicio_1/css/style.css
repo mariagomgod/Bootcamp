@@ -1,20 +1,43 @@
 .photo-1 {
   background-image: url(../imagenes/alan-flack-VtfiPvSGh5s-unsplash.jpg);
   width: 100%;
-  height: 600px;
+  height: 300px;
   background-position: center center;
 }
 
 .photo-2 {
   background-image: url(../imagenes/dhiva-krishna-X16zXcbxU4U-unsplash.jpg);
   width: 100%;
-  height: 600px;
+  height: 300px;
   background-position: center center;
 }
 
 .photo-3 {
   background-image: url(../imagenes/grahame-jenkins-p7tai9P7H-s-unsplash.jpg);
   width: 100%;
-  height: 600px;
+  height: 300px;
   background-position: center center;
 }
+
+footer {
+  background-color: black;
+  color: white;
+  padding: 30px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  padding: 20px 0 15px 0;
+
+}
+
+.main-page {
+  box-sizing: border-box;
+  margin: 50px;
+}
+
+
+

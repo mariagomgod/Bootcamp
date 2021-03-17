@@ -1,0 +1,98 @@
+:root {
+    --purple-light: #7e3af2;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Ubuntu bold', Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    margin: 4vh 4vw;
+}
+
+.fondo {
+    background-image: url(../imagenes_final/jarron.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px 0 0 15px;
+}
+
+form {
+    padding: 0 3vw;
+    border: 1px solid lightgray;
+    border-radius: 0 15px 15px 0;
+}
+
+div.inputBlock {
+   padding-bottom: 1.5vh;
+}
+
+input.gap, .logIn {
+    width: 100%;
+    margin-top: 0.75vh;
+}
+
+.logIn {
+    padding: 0.75vh 0.75vw;
+    margin-top: 0.75vh;
+    background-color: var(--purple-light);
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+a.social {
+    display: block;
+    border: 1px solid lightgray;
+    width: 100%;
+    margin-bottom: 1vh;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.75vh 0.75vw;
+    border-radius: 8px;
+    color: black;
+    text-align: center;
+}
+
+hr {
+    margin: 5vh 0;
+}
+
+.control {
+    display: block;
+    margin: 1.5vh 0;
+}
+
+.footer a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 2vh 0;
+    color: var(--purple-light);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .container {
+        grid-template: 1fr 4fr/ 1fr;
+        margin: 0;
+    }
+
+    .fondo {
+        border-radius: 5px 5px 0 0;
+    }
+
+    form {
+        border-radius: 0 0 5px 5px;
+    }
+
+
+}
