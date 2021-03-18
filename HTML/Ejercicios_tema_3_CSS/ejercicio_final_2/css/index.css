@@ -1,0 +1,85 @@
+:root {
+    --purple-light: #7e3af2;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Ubuntu bold', Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5vh 2.5vw;
+}
+
+ul {
+    padding-left: 0;
+}
+
+ul > li {
+    list-style: none;
+    margin: 0;
+    padding: 15px 0;
+    color: gray;
+    border-left: 4px solid white;
+}
+
+ul > li:hover {
+    border-color: var(--purple-light);
+    cursor: all-scroll;
+    color: black;
+}
+
+#title > i.fab, #photo > i.fas {
+    color: blueviolet;
+}
+
+#title > span, ul > li, .product {
+    font-weight: bold;
+}
+
+#search > i.fas {
+    position: relative;
+    left: 1.7em;
+}
+
+#search > input {
+    padding-left: 1.7em;
+}
+
+#photo > img {
+    height: 30px;
+    border-radius: 20px;
+}
+
+#column-left {
+    padding: 0 2.5vw;
+}
+
+a.product {
+    display: block;
+    border: 1px solid var(--purple-light);
+    background-color: var(--purple-light);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.product > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
