@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheatsheet JavaScript</title>
+    <style>
+        a {
+            font-size: 2em;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Procesar JavaScript</h1>
+    <a href="#" onclick="console.log('Hola desde un script inline')">Inline script</a>
+    <a href="#">Internal Script</a>
+    <a href="#">External script</a>
+
+    <script>
+        function saludo () {
+            alert("Hola desde un script interno");
+            console.log("has hecho click");
+        }
+        document.getElementsByTagName("a").item(1).addEventListener("click", saludo);
+    </script> <!--Se pone el script al final del body para que todo lo demás se procese primero-->
+
+    <script src="js/main.js"></script> <!--Script al final del bodoy siempre-->
+    
+</body>
+
+</html>
