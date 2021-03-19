@@ -19,6 +19,16 @@ header {
     padding: 2.5vh 2.5vw;
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer > span {
+    color: gray;
+}
+
 ul {
     padding-left: 0;
 }
@@ -26,7 +36,7 @@ ul {
 ul > li {
     list-style: none;
     margin: 0;
-    padding: 15px 0;
+    padding: 2vh 0.5vw;
     color: gray;
     border-left: 4px solid white;
 }
@@ -37,11 +47,11 @@ ul > li:hover {
     color: black;
 }
 
-#title > i.fab, #photo > i.fas {
+#title > i.fab, #photo > i.fas, i.fa-search {
     color: blueviolet;
 }
 
-#title > span, ul > li, .product {
+#title > span, ul > li, .product, #viewMore, footer {
     font-weight: bold;
 }
 
@@ -52,15 +62,56 @@ ul > li:hover {
 
 #search > input {
     padding-left: 1.7em;
+    width: 30vw;
+    background-color: #f9fafb;
+    border-radius: 5px;
+    height: 30px;
+    border-color: white;
 }
 
-#photo > img {
+img.portrait {
     height: 30px;
     border-radius: 20px;
 }
 
+#main-container {
+    display: grid;
+    grid-template: 1fr / 1fr 4fr;
+}
+
 #column-left {
     padding: 0 2.5vw;
+}
+
+#pagination > a {
+    text-decoration: none;
+    color: gray;
+    padding: 10px 15px;
+}
+
+#pagination > a:hover {
+    background-color: var(--purple-light);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#viewMore {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--purple-light);
+    background-color: var(--purple-light);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+#main-column {
+    background-color: #f9fafb;
+    padding: 1vh 1vw 4vh 1vw;
+    box-shadow: inset 0px 11px 8px -10px #CCC;
 }
 
 a.product {
@@ -71,6 +122,7 @@ a.product {
     text-decoration: none;
     padding: 10px;
     border-radius: 8px;
+    margin-top: 25px;
 }
 
 .product > div {
