@@ -23,6 +23,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
 }
 
 footer > span {
@@ -47,12 +48,56 @@ ul > li:hover {
     color: black;
 }
 
+#dashboard-header .highlight-wrapper  {
+    border: 1px solid #eff0f1;
+    background-color: white;
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    color: #7a7c7e;
+    font-weight: bold;
+    border-collapse: collapse;
+
+}
+
+td, th {
+    border-bottom: 1px solid #eff0f1;
+    padding: 10px;
+}
+
+td {
+    background-color: white;
+}
+
+thead {
+    border-radius: 8px 8px 0 0;
+}
+
 #title > i.fab, #photo > i.fas, i.fa-search {
     color: blueviolet;
 }
 
-#title > span, ul > li, .product, #viewMore, footer {
+#photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title > span, ul > li, .product, #viewMore, footer, .status {
     font-weight: bold;
+}
+
+i.fa-bell {
+    margin-right: 7px;
+}
+
+i.fa-bars {
+    display: none;
+    color: var(--purple-light);
+    font-size: 25px;
 }
 
 #search > i.fas {
@@ -76,7 +121,7 @@ img.portrait {
 
 #main-container {
     display: grid;
-    grid-template: 1fr / 1fr 4fr;
+    grid-template: 1fr / 1fr 5fr;
 }
 
 #column-left {
@@ -108,9 +153,85 @@ img.portrait {
     text-decoration: none;
 }
 
+#dashboard-header {
+    display: grid;
+    grid-template: 1fr / repeat(4, 1fr);
+    margin-top: 1.5vw;
+    gap: 15px;
+    font-weight: bold;
+}
+
+#dashboard-header i {
+    border-radius: 20px;
+    padding: 8px;  
+}
+
+#dashboard-results {
+    border: 1px solid #edeeef;
+    border-radius: 8px;
+    margin-top: 1.5vw;
+}
+
+.highlight-wrapper {
+    display: grid;
+    grid-template: 1fr / 1fr 5fr;
+    align-items: center;
+}
+
+div.person {
+    display: inline-block;
+}
+
+p {
+    margin: 0;
+}
+
+div.person p.highlight {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color:black;
+    font-size: 1.1em;
+}
+
+.highlight-wrapper .title{
+    color: #5e6164;
+}
+
+.highlight-wrapper .results {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+
+.highlight-wrapper i.fas {
+    width: 35px;
+    height: 35px;
+}
+
+i.fa-users {
+    background-color: #feecdc;
+    color: #ff5a1f;
+}
+
+i.fa-money-check-alt {
+    background-color: #def7ec;
+    color: #0e9f6e;
+}
+
+i.fa-shopping-cart {
+    background-color: #e1effe;
+    color: #3f83f8;
+}
+
+
+i.fa-comment-dots {
+    background-color: #d5f5f6;
+    color: #5cbcc5;
+}
+
 #main-column {
     background-color: #f9fafb;
-    padding: 1vh 1vw 4vh 1vw;
+    padding: 2vh 8vw 4vh 8vw;
     box-shadow: inset 0px 11px 8px -10px #CCC;
 }
 
@@ -131,7 +252,104 @@ a.product {
     align-items: center;
 }
 
+#dashboard-header .highlight-wrapper {
+    padding: 10px;
+}
 
+.status {
+    padding: 10px;
+    border-radius: 40px;
+    border: 1px solid white;
+}
 
+.approved {
+    background-color: #def7ec;
+    color: #288468;
+}
 
+.denied {
+    background-color: #fde8e8;
+    color: #d65656;
+}
 
+.expired {
+    background-color: #f4f5f7;
+    color: #5d5e64;
+}
+
+@media only screen and (max-width: 1400px) {
+    body {
+        font-size: 85%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    body {
+        font-size: 75%;
+    }
+
+    #main-container {
+        grid-template: 1fr / 1fr 3fr;
+    }
+
+    #main-column {
+        padding: 2vw;
+    }
+
+    #dashboard-header {
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    }
+
+    #pagination > a {
+        padding: 7px 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    h2 {
+        margin-top: 0;
+    }
+
+    i.fa-bars, #main-container {
+        display: block;
+    }
+
+    #dashboard-header {
+        grid-template: repeat(4, 1fr) / 1fr;
+        gap: 0;
+        margin-top: 1.5vw;
+    }
+
+    .highlight-wrapper {
+        margin-bottom: 10px;
+    }
+
+    #title, #column-left, #dashboard-results img.portrait {
+        display: none;
+    }
+
+    #main-column {
+        padding: 4vw;
+    }
+
+    #dashboard-header .highlight-wrapper {
+        margin-bottom: 0;
+        margin-top: 1.5vw;
+    }
+
+    #pagination > a {
+        padding: 3px 5px;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    body {
+        font-size: 60%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    #dashboard-results p.highlight {
+        font-size: 1em;
+    }
+}
