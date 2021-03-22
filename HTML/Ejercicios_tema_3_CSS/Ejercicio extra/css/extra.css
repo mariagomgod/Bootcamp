@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #1a2130;
+    width: 100%;
+    padding: 0 2vw;
+}
+
+h1, ul > li {
+    color: white;
+    font-weight: bold;
+}
+
+h3 {
+    color: #4a90e2;
+    margin-top: 8px;
+}
+
+.title {
+    text-align: center;
+    margin: 3vw;
+}
+
+ul > li {
+    list-style: none;
+    padding: 0.5vw 1vw;
+    margin-bottom: 20px;
+}
+
+ul > li:nth-child(odd) {
+    border: 1px solid #1f2c42;
+    background-color: #1f2c42;
+}
+
+.list > ul {
+    margin-top: 100px;
+}
