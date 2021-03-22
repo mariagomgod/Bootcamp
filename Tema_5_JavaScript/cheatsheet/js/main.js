@@ -4,7 +4,7 @@ function saludo () {
     alert("Hola desde un script externo");
     console.log("has hecho click");
 }
-document.getElementsByTagName("a").item(2).addEventListener("click", saludo);
+//document.getElementsByTagName("a").item(2).addEventListener("click", saludo);
 
 //--------Depuración / logging (comprobar qué está pasando)------------
 
@@ -170,6 +170,112 @@ person.jump();
 console.log({name: "John", age: 5}); // en el momento que dentro pones unas llaves, es un objeto, independientemente de que tenga algo dentro o no
 
 console.log(typeof {}, typeof [], typeof "");
+
+// This (hace referencia al objeto entero en el que está)
+
+const person2 = {
+    name: "Thomas",
+    talk() {
+        console.log(this);
+        console.log(`Me llamo ${this.name}`);
+    }
+}
+
+const person3 = {
+    name: "Sarah",
+    talk() {
+        console.log(this);
+        console.log(`Me llamo ${this.name}`);
+    }
+}
+
+person2.talk();
+person3.talk();
+
+console.clear();
+
+//---------------------Arrays--------------------------
+
+let selectedColors = ["red", "blue"]; // Array de Strings
+console.log(selectedColors, selectedColors.length, typeof selectedColors);
+
+selectedColors[2] = "green"; // Si no existe, lo crea
+
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.push("violet", "white"); // push añade uno o varios elementos al array
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.pop(); // pop quita el último elemento del array
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.unshift("white"); // unshift añade nuevos elementos al principio del array
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.shift(); // shift quita el primer elemento del array
+console.log(selectedColors, selectedColors.length);
+
+selectedColors.sort(); // short ordena los elementos del array alfabéticamente y tambiérn se pueden ordernar arrays de objetos
+console.log(selectedColors, selectedColors.length);
+
+console.log("El rojo está en el índice", selectedColors.indexOf("red")); // indexOf devuelve el índice del primer elemento
+
+console.log(selectedColors[selectedColors.indexOf("red") + 1]);
+
+console.log(selectedColors.slice(1, 3));
+console.log(selectedColors);
+
+console.log("Los elementos borrados son: ", selectedColors.splice(1, 3)); // devuelve los elementos que ha borrado
+console.log("El array se ha quedado así: ", selectedColors);
+
+/* Crear un objeto 'niño' que tenga las propiedades nombre, altura, género y amigos. 
+Amigos estará inicialmente vacío y añadiremos posteriormente 3 elementos string con 
+los nombres. Despues, añadiremos uno extra al inicio. */ 
+
+const kid = {
+    name: "Manuel",
+    height: "1.60",
+    gender: "male",
+    friends: [],
+    perderAmigo() {
+        this.friends.pop();
+    }
+}
+
+console.log(kid);
+kid.friends.push("María", "Roberto", "Ana");
+console.log(kid);
+kid.friends.unshift("Juan");
+console.log(kid);
+
+kid.perderAmigo();
+console.log(kid);
+
+console.clear();
+
+//------------------Condicionales--------------------------
+
+const randomNumber = 9;
+const guessedNumber = "5";
+
+if (typeof randomNumber !== typeof guessedNumber) {
+    console.log("Hey, tienes que introducir el mismo tipo");
+}
+
+if (randomNumber === guessedNumber) {
+    console.log("Has acertado el número");
+} else if (randomNumber > guessedNumber) {
+    console.log("El número secreto es mayor");
+} else {
+    console.log("El número secreto es menor");
+} 
+
+
+
+
+
+
+
 
 
 
