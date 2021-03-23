@@ -40,3 +40,33 @@ ul > li:nth-child(odd) {
 .list > ul {
     margin-top: 100px;
 }
+
+#main-wrapper {
+    display: grid;
+    grid-template: 1fr / 1fr 3fr;
+}
+
+#main-column {
+    display: grid;
+    grid-template: repeat(13, 1fr) / repeat(4, 1fr);
+    
+    align-items: center;
+    gap: 30px;
+}
+
+#main-column > div {
+    background-color: white;
+}
+
+h4.price {
+    color: #4a90e2;
+}
+
+span.description {
+    color: #9b9ba8;
+}
+
+.developer, .startup, .grow, .dominate {
+    text-align: center;
+}
+
