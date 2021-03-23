@@ -138,8 +138,13 @@ let person = { // Curly brackets
     }, // Pre ES6
     jump() {
         console.log("Hey, estoy saltando.");
-    } // ES6
+    }, // ES6
+    presentarse() {
+    console.log(`Me llamo ${this.name}, tengo ${this.age} años y ${this.blonde ? "soy rubio" : "soy moreno"}`);
+    }
 }
+
+person.presentarse();
 
 // Acceso por punto/ Dot notation
 
@@ -269,6 +274,152 @@ if (randomNumber === guessedNumber) {
 } else {
     console.log("El número secreto es menor");
 } 
+
+// Ternary Operator / Operador ternario
+
+let variable = 12 < 10 ? "El primero es menor" : "El primero es mayor";
+console.log(variable);
+
+// Switch
+
+let option = 2;
+switch (option) {
+    case 1:
+        // Bloque de código para valor 1
+        console.log("Option vale 1");
+        break;
+    case 2:
+        // Bloque de código para valor 2
+        console.log("Option vale 2");
+        break;
+    case 3:
+        // Bloque de código para valor 3
+        console.log("Option vale 3");
+        break;
+    default: // "De otro modo" de Pseint
+        console.log("otra opción");
+        break;
+}
+
+//-------------------Funciones / Functions----------------------------------------
+
+// Nombradas
+
+function greet(name, lastName) {
+    return `Hola, ${name} ${lastName}. ¿Qué tal?`;
+}
+
+console.log(greet("Marcos", "Aurelio"));
+
+// Ejercicio: Función que devuelva el cuadrado de un número que recibe por parámetro
+
+function square(number) {
+    return number * number;
+}
+
+console.log(square(5));
+
+
+// Anónimas (si solo quieres utilizar la función una vez)
+
+let numbersArray = [5, 51, 1, 15, 2];
+console.log(numbersArray);
+numbersArray.sort(); // Me lo ordena según ASCII
+console.log(numbersArray);
+
+
+function orderNumbers (a, b) {
+    if (a < b) {
+        return -1;
+    } else if (a === b) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+//numbersArray.sort(orderNumbers);
+
+numbersArray.sort(function (a, b) {return a - b}); // Esta es la función anónima. Pasas la función entera por argumento. Es lo mismo que poner la función de arriba
+
+console.log(numbersArray);
+
+console.clear ();
+
+
+// Funciones de flecha / Arrow functions
+
+let perimeterOfSquare = function (side) { // Función anónima normal a transformar
+  return side * 4;
+}
+perimeterOfSquare = function (side) {return side * 4;} // (opcional) Una única línea
+perimeterOfSquare = (side) => {return side * 4;} // Sustituyo function por la flecha después de params.
+perimeterOfSquare = (side) => side * 4; // Si sólo quiero devolver algo, quito llaves y return.
+perimeterOfSquare = side => side * 4; // Es la arrow function. Si sólo tiene 1 param, puedo quitar paréntesis.
+
+console.log(perimeterOfSquare(5));
+
+//console.log(typeof function () {});
+//console.log(typeof (() => {}));
+
+// Ejercicio. Cómo transformar funciones anónimas en funciones flechas
+
+numbersArray.sort(function (a, b) {return a - b});
+numbersArray.sort((a, b) => a - b);
+console.log(numbersArray);
+
+let squareV2 = number => number * number;
+console.log(squareV2(6));
+
+
+//------------------------------Bucles / Loops---------------------------------
+
+// Bucle For
+
+for (let i = 0; i <= 10; i++) {
+    console.log(`Índice: ${i}`);
+}
+
+// Ejercicio. Definir y rellenar un array con el índice i
+
+const arrayX = [];   
+
+for (let i = 0; i <= 10; i++) {
+    arrayX.push(i);
+}
+
+console.log(arrayX);
+
+
+// Bucle While
+
+let contador = 0;
+
+while (contador <= 10) {
+
+    console.log(contador);
+    contador ++;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
