@@ -401,6 +401,22 @@ while (contador <= 10) {
     contador ++;
 }
 
+while (true) {
+    break;
+}
+
+console.log("No entra en bucle infinito");
+
+// Bucle ForEach (siempre se utiliza con arrays)
+
+console.log(numbersArray);
+
+numbersArray.forEach(function (value, index) {
+    console.log(`Índice ${index}: ${value}`);
+});
+
+
+
 
 
 
