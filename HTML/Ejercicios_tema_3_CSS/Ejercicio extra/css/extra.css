@@ -29,7 +29,8 @@ h3 {
 ul > li {
     list-style: none;
     padding: 0.5vw 1vw;
-    margin-bottom: 20px;
+    height: 2vw;
+    line-height: 1vw;
 }
 
 ul > li:nth-child(odd) {
@@ -38,7 +39,7 @@ ul > li:nth-child(odd) {
 }
 
 .list > ul {
-    margin-top: 100px;
+    padding-top: 4vw;
 }
 
 #main-wrapper {
@@ -48,14 +49,18 @@ ul > li:nth-child(odd) {
 
 #main-column {
     display: grid;
-    grid-template: repeat(13, 1fr) / repeat(4, 1fr);
-    
+    grid-template: repeat(12, 1fr) / repeat(4, 1fr);
     align-items: center;
-    gap: 30px;
+    gap: 0 30px;
+    padding-top: 4vw;
 }
 
 #main-column > div {
     background-color: white;
+    text-align: center;
+    height: 2vw;
+    line-height: 1vw;
+    padding: 0.5vw 1vw;
 }
 
 h4.price {
@@ -66,7 +71,19 @@ span.description {
     color: #9b9ba8;
 }
 
-.developer, .startup, .grow, .dominate {
-    text-align: center;
+#main-column-header {
+    display: grid;
+    grid-template: 1fr / repeat(4, 1fr);
+    align-items: center;
+    gap: 0 30px;
+}
+
+#main-column-header > div {
+    height: 8vw;
+}
+
+footer {
+    display: grid;
+    grid-template: 1fr / repeat(4, 1fr);
 }
 
