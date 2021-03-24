@@ -44,6 +44,7 @@ parent1.style.backgroundColor = "#333";
 
 
 
+
 //Array.from(family).forEach(item => console.log(item)); // Construyo un array desde HTML Collection 
 
 //for (let familyMember of family) { // HTML Collection es iterable
