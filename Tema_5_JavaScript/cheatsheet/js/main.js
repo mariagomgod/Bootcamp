@@ -407,13 +407,63 @@ while (true) {
 
 console.log("No entra en bucle infinito");
 
-// Bucle ForEach (siempre se utiliza con arrays)
+// Bucle ForEach (siempre se utiliza con arrays, es EXCLUSIVO DE LOS ARRAYS y hay que poner una función dentro)
 
 console.log(numbersArray);
 
-numbersArray.forEach(function (value, index) {
-    console.log(`Índice ${index}: ${value}`);
+numbersArray.forEach(function (item, index) {
+    console.log(`Índice ${index}: ${item}`);
 });
+
+numbersArray.forEach((item, index) => console.log(`Índice ${index}: ${item}`)); //Es igual que justo la de arriba pero con un arrow function
+
+let otherArray = [];
+
+numbersArray.forEach(item => otherArray.push(item));
+
+console.log(otherArray);
+
+
+// Bucle For...of (funciona igual que el ForEach pero después del of, se puede poner cualquier elemento iterable, no sólo arrays)
+
+for (let item of numbersArray) {
+    console.log(item);
+}
+
+
+// Continue (salta a la siguiente iteración)
+
+for (let i = 0; i < 5; i++) {
+    if (i === 3 || i === 2) { // quieres saltar el 3 y el 2
+        continue
+    }
+    console.log("Using continue", i);
+}
+
+// Break
+
+let i = 0;
+let k;
+
+mainLoop: while (true) {
+    console.log("Outer loop", i);
+    i++;
+    k = 1;
+    while (true) {
+        console.log("Inner loop", k);
+        k++;
+        if (i === 5 && k === 5) {
+            break mainLoop; // para romper el bucle exterior, se le asigna al primer bucle un nombre, en este caso le hemos llamado mainLoop y al break también le damos ese nombre para que rompa ese bucle exterior
+        } else if (k === 5) {
+            break; // para romper el bucle interior
+        }
+    }
+}
+
+
+
+
+
 
 
 
