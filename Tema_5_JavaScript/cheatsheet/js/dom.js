@@ -65,7 +65,7 @@ parent1.setAttribute("name", "nombre-parent1"); //añade un atributo donde quera
 let myDiv = document.createElement("div");
 myDiv.id = "new Div";
 myDiv.classList.add("child");
-myDiv.textContent = "child 2.5";
+myDiv.textContent = "child 2.5"; // <div id="new Div" class="child">child 2.5</div>
 
 let myDiv2 = myDiv;
 
@@ -91,8 +91,8 @@ function createNode(label, id) {
     return newNode;
 }
 
-let newDiv = createNode("div", "identificador1");
-let table = createNode("table", "identificador2");
+let newDiv = createNode("div", "identificador1"); // <div id="identificador1"></div>
+let table = createNode("table", "identificador2"); // <table id="identificador2"></table>
 
 parent2.appendChild(newDiv);
 parent2.appendChild(table);
