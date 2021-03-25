@@ -38,13 +38,9 @@ ul > li:nth-child(odd) {
     background-color: #1f2c42;
 }
 
-.list > ul {
-    padding-top: 4vw;
-}
-
 #main-wrapper {
     display: grid;
-    grid-template: 1fr / 1fr 3fr;
+    grid-template: 1fr / 25vw 1fr;
 }
 
 #main-column {
@@ -52,7 +48,6 @@ ul > li:nth-child(odd) {
     grid-template: repeat(12, 1fr) / repeat(4, 1fr);
     align-items: center;
     gap: 0 30px;
-    padding-top: 4vw;
 }
 
 #main-column > div {
@@ -61,29 +56,67 @@ ul > li:nth-child(odd) {
     height: 2vw;
     line-height: 1vw;
     padding: 0.5vw 1vw;
+    border-left: 4px solid #4a90e2;
+    border-right: 4px solid #4a90e2;
 }
 
 h4.price {
     color: #4a90e2;
 }
 
+h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
 span.description {
     color: #9b9ba8;
 }
 
-#main-column-header {
+#main-column-header, footer, #main-column-header {
     display: grid;
     grid-template: 1fr / repeat(4, 1fr);
     align-items: center;
     gap: 0 30px;
+    text-align: center;
+}
+
+#main-column-header > div, footer > div {
+    background-color: white;
+    border-left: 4px solid #4a90e2;
+    border-right: 4px solid #4a90e2;
+}
+
+footer, #main-column-header {
+    margin-left: 25vw;
+}
+
+footer > div {
+    border-bottom: 4px solid #4a90e2;
+    border-radius: 0 0 10px 10px;
 }
 
 #main-column-header > div {
     height: 8vw;
+    border-top: 4px solid #4a90e2;
+    border-radius: 10px 10px 0 0;
+    padding-top: 30px;
 }
 
-footer {
-    display: grid;
-    grid-template: 1fr / repeat(4, 1fr);
+#main-column > div.information {
+    background-color: #edf4fc;
+
+}
+
+.signUp {
+    color: white;
+    font-weight: bold;
+    background-color: #4a90e2;
+    border: 1px solid #4a90e2;
+    padding: 10px;
+    width: 10vw;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin-bottom: 30px;
 }
 
