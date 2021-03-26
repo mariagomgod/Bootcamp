@@ -97,6 +97,60 @@ let table = createNode("table", "identificador2"); // <table id="identificador2"
 parent2.appendChild(newDiv);
 parent2.appendChild(table);
 
+console.clear();
+
+// Events / Eventos
+
+const colorButton = document.getElementsByTagName("button")[0];
+
+colorButton.addEventListener("click", function (event) {
+    console.log(event);
+    console.log(event.target);
+    console.log(event.target.tagName);
+
+    if (event.ctrlKey) {
+        document.body.classList.toggle("bg-red"); // toggle solo se puede aplicar en classList
+    }
+    console.log(`X: ${event.clientX} | Y: ${event.clientY}`);
+    console.log(`Alt: ${event.altKey}. Shift: ${event.shiftKey}. Ctrl: ${event.ctrlKey}`);
+});
+
+const emailInput = document.querySelector("#emailInput"); // querySelector te devuelve el elemento directamente
+
+emailInput.addEventListener("focus", inputListener);
+emailInput.addEventListener("blur", inputListener);
+
+function inputListener (e) { // e = event
+    console.log("Tipo de evento: ", e.type);
+    
+    if (e.type === "focus") {
+        e.target.classList.add("bg-red");
+    } else if (e.type === "blur") {
+        e.target.classList.remove("bg-red");
+    }
+}
+
+const changeTitle = e => {
+    document.querySelectorAll("h1")[2].textContent = emailInput.value; // Propiedad value importante
+}
+
+emailInput.addEventListener("keydown", inputListener);
+emailInput.addEventListener("keyup", changeTitle);
+
+const container = document.getElementById("container");
+
+container.addEventListener("mouseover", inputListener);
+container.addEventListener("mouseout", inputListener);
+
+function coords (e) {
+    document.querySelectorAll("h1")[3].textContent = `X: ${e.clientX} | Y: ${e.clientY}`;
+}
+
+document.body.addEventListener("mousemove", coords);
+
+
+
+
 
 
 
