@@ -38,6 +38,86 @@ listItems[2].addEventListener("click", changeImage);
 
 
 
+// Apartado 4.1 - Añadir un input de tipo texto y un botón. Al pulsar el botón debe
+// escribirse el texto del input en un párrafo.
+
+const parrafo = document.getElementById("parrafo-1");
+const input = document.getElementById("input-1");
+const button_4 = document.getElementById("button-1");
+
+const textInput = (e) => parrafo.textContent = input.value;
+
+button_4.addEventListener("click", textInput);
+
+// Apartado 4.2 - Añadir un nuevo input pero esta vez cambiará el texto con cada 
+// pulsación de tecla del usuario.
+
+const input_2 = document.getElementById("input-2");
+
+const textInput2 = (e) => parrafo.textContent = input_2.value;
+
+input_2.addEventListener("keyup", textInput2);
+
+
+
+// Apartado 5 - De forma similar al anterior, pero para un textarea y validará si 
+// lo introducido es mayor de 15 caracteres.
+
+const textArea = document.getElementById("textArea");
+const parrafo_2 = document.getElementById("parrafo-2");
+
+function textArea1() {
+    if (textArea.value.length > 15) {
+        parrafo_2.textContent = textArea.value;
+    } else {
+        parrafo_2.textContent = "";
+    }
+}
+
+textArea.addEventListener("keyup", textArea1);
+
+
+
+// Apartado 6 - Añadir un input de tipo texto con leyenda: "Escribir un número par".
+// Añadir un botón. Al pulsar el botón nos validará si el número es par o no. En caso
+// negativo, cambiar los bordes del input a rojo. Para revertir el estado de una 
+// propiedad, podemos utilizar el valor "revert" o dejarla vacía.
+
+const input_3 = document.getElementById("input-3");
+const button_6 = document.getElementById("button-2");
+
+function pressButton() {
+    if (input_3.value % 2 != 0) {
+        input_3.style.borderColor = "red";
+    } else {
+        input_3.style.borderColor = "revert"; 
+    }
+}
+
+button_6.addEventListener("click", pressButton);
+
+
+
+// Apartado 7 - Partiendo de una lista ul, crear 10 li con un texto indicando el
+// número del elemento ("Elemento X") usando un bucle for.
+
+const ul = document.createElement("ul");
+
+for (let i = 1; i <= 10; i++) {
+    const li = document.createElement("li");
+    li.textContent = "Elemento " + i;
+    ul.appendChild(li);
+}
+
+const separador = document.getElementById("separador");
+
+document.body.insertBefore(ul, separador);
+
+
+
+
+
+
 
 
 
