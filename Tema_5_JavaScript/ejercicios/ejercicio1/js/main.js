@@ -17,7 +17,7 @@ contenedor.append(p, p2); // se pone append a secas para añadir varios elemento
 
 const button = document.querySelector("button");
 
-button.addEventListener("click", function (e) {
+button.addEventListener("click", function () {
     document.body.style.backgroundColor = "red";
 });
 
@@ -45,7 +45,7 @@ const parrafo = document.getElementById("parrafo-1");
 const input = document.getElementById("input-1");
 const button_4 = document.getElementById("button-1");
 
-const textInput = (e) => parrafo.textContent = input.value;
+const textInput = () => parrafo.textContent = input.value;
 
 button_4.addEventListener("click", textInput);
 
@@ -54,7 +54,7 @@ button_4.addEventListener("click", textInput);
 
 const input_2 = document.getElementById("input-2");
 
-const textInput2 = (e) => parrafo.textContent = input_2.value;
+const textInput2 = () => parrafo.textContent = input_2.value;
 
 input_2.addEventListener("keyup", textInput2);
 
@@ -102,6 +102,8 @@ button_6.addEventListener("click", pressButton);
 // número del elemento ("Elemento X") usando un bucle for.
 
 const ul = document.createElement("ul");
+const apartado8 = document.getElementById("apartado8");
+document.body.insertBefore(ul, apartado8);
 
 for (let i = 1; i <= 10; i++) {
     const li = document.createElement("li");
@@ -109,9 +111,42 @@ for (let i = 1; i <= 10; i++) {
     ul.appendChild(li);
 }
 
-const separador = document.getElementById("separador");
 
-document.body.insertBefore(ul, separador);
+
+// Apartado 8 - Crear un enlace y un botón. Si pulso el enlace se me abre la URL en
+// la misma página. Si pulso primero el botón y luego el enlace, se me abre en una 
+// nueva pestaña.
+
+const a = document.getElementById("link");
+const button_8 = document.getElementById("button-4");
+
+const clickButton = () => a.target = "_blank";
+
+button_8.addEventListener("click", clickButton);
+
+
+
+// Apartado 9 - Añadir un párrafo y un select con 5 opciones de colores: negro, blanco,
+// rojo, amarillo, verde y azul. Al seleccionar un color del select, cambiar el color
+// del párrafo.
+
+const select = document.getElementById("select");
+const parrafo_3 = document.getElementById("parrafo-3");
+
+select.addEventListener("change", function (e) {
+    parrafo_3.style.color = e.target.value;
+});
+
+
+// Apartado 10 - Incluir un botón que al pulsarlo genere un número aleatorio y mantenga en 
+// una lista actualizada, el número de elementos que se han generado, los que son pares y
+// los que son impares.
+
+
+
+
+
+
 
 
 

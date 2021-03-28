@@ -1,0 +1,95 @@
+// Apartado 1
+
+const div = document.getElementById("div");
+const p = document.createElement("p");
+const p2 = document.createElement("p");
+
+p.textContent = "Hola mundo";
+p2.textContent = "Adiós mundo";
+
+div.append(p, p2);
+
+// Apartado 2
+
+const button = document.getElementById("button");
+
+button.addEventListener("click", function (e) {
+    document.body.style.backgroundColor = "lightblue";
+});
+
+// Apartado 3
+
+const listUrl = document.getElementsByTagName("li");
+const image = document.getElementById("imagen");
+
+const listImages = (e) => image.src = e.target.textContent;
+
+listUrl[0].addEventListener("click", listImages);
+listUrl[1].addEventListener("click", listImages);
+listUrl[2].addEventListener("click", listImages);
+
+// apartado 4
+
+const input = document.getElementById("input");
+const button2 = document.getElementById("button-2");
+const parrafo = document.getElementById("parrafo");
+
+const pressButton = () => parrafo.textContent = input.value;
+
+button2.addEventListener("click", pressButton);
+
+// apartado 4.2
+
+const input_2 = document.getElementById("input-2");
+
+const pressKey = () => parrafo.textContent = input_2.value;
+
+input_2.addEventListener("keyup", pressKey);
+
+// Apartado 5
+
+const textArea = document.getElementById("textArea");
+const parrafo_2 = document.getElementById("parrafo-2");
+
+function pressKeyUser () {
+    if (textArea.value.length > 15) {
+       parrafo_2.textContent = textArea.value;
+    } else {
+        parrafo_2.textContent = "";
+    }
+} 
+textArea.addEventListener("keyup", pressKeyUser);
+
+// Apartado 6
+
+const input_3 = document.getElementById("input-3");
+const button_3 = document.getElementById("button-3");
+
+function pressButton3 () {
+    if (input_3.value % 2 != 0) {
+        input_3.style.borderColor = "red";
+    } else {
+        input_3.style.borderColor = "revert";
+    }
+}
+
+button_3.addEventListener("click", pressButton3);
+
+// apartado 7
+
+const ul = document.getElementById("ul");
+
+for (let i = 1; i <= 10; i++) {
+    const li = document.createElement("li");
+    li.textContent = "Elemento " + i;
+    ul.appendChild(li);
+}
+
+
+
+
+
+
+
+
+
