@@ -85,6 +85,26 @@ for (let i = 1; i <= 10; i++) {
     ul.appendChild(li);
 }
 
+// apartado 8
+
+const a = document.getElementById("link");
+const button_4 = document.getElementById("button-4");
+
+const pressButton4 = () => a.target = "_blank";
+
+button_4.addEventListener("click", pressButton4);
+
+// apartado 9
+
+const select = document.getElementById("select");
+const parrafo_3 = document.getElementById("parrafo-3");
+
+const selectButton = (e) => parrafo_3.style.color = e.target.value;
+
+select.addEventListener("click", selectButton);
+
+
+
 
 
 

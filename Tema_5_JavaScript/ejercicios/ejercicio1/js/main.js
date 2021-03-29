@@ -142,6 +142,70 @@ select.addEventListener("change", function (e) {
 // una lista actualizada, el número de elementos que se han generado, los que son pares y
 // los que son impares.
 
+const button_10 = document.getElementById("button-5");
+const totales = document.getElementById("totales");
+const pares = document.getElementById("pares");
+const impares = document.getElementById("impares");
+const p3 = document.getElementById("num");
+
+function getRandom() {
+    const aleatorio = Math.ceil(10 * Math.random());
+    totales.textContent++;
+    if (aleatorio % 2 == 0) {
+        pares.textContent++;
+    } else {
+        impares.textContent++;
+    }
+    p3.textContent = "El número generado es: " + aleatorio;
+}
+
+button_10.addEventListener("click", getRandom);
+
+
+// Apartado 11 - Construir una lista que tenga números. Añadir un input donde poder añadir
+// números y un botón. Al pulsar el botón, si el número ya existe en la lista, mostrar un 
+// mensaje de error, si no existe, lo añadirá al principio.
+
+const ul_2 = document.getElementById("ul-2");
+const input_4 = document.getElementById("input-4");
+const button_11 = document.getElementById("button-6");
+
+const myArray = new Array();
+
+function addNumber() {
+    const num = input_4.value;
+    if (myArray.includes(num)) {
+        alert("error");
+    } else {
+        const li = document.createElement("li");
+        ul_2.prepend(li);
+        li.textContent = num;
+        myArray.push(num);
+    }
+}
+
+button_11.addEventListener("click", addNumber);
+
+
+// Apartado 12 - Crearemos una clase .btn en CSS que le de ciertos estilos a un botón. Al
+// hacer click en el botón haremos "toggle" o alternaremos esa clase, es decir, si está 
+// presente la quitarremos y si no está, la añadiremos.
+
+const button_12 = document.getElementsByClassName("btn")[0];
+
+button_12.addEventListener("click", () => button_12.classList.toggle("btn"));
+
+
+// Apartado extra - Refactorizar el código con un único forEach.
+
+const buttons = document.getElementsByClassName('btn');
+
+Array.from(buttons).forEach(element => {
+    element.addEventListener('click', () => element.style.backgroundColor = "red");
+});
+
+
+
 
 
 
