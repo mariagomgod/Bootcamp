@@ -28,7 +28,7 @@ console.log(myArray2);
 // Apartado 3 - Escribe una función nombrada que devuelva true si el argumento
 // dado es de tipo boolean y false en caso contrario.
 
-function funcion (e) {
+function funcion(e) {
     if (typeof e === "boolean") {
         return true;
     } else {
@@ -56,7 +56,7 @@ console.log(convertMinutestoSeconds(4));
 // Apartado 6 - Crea una función que reciba un número y devuelva el siguiente número
 // par. (Si él es par, lo devolverá directamente).
 
-function numero (num) {
+function numero(num) {
     if (num % 2 == 0) {
         return num;
     } else {
@@ -77,7 +77,7 @@ console.log(edad(2));
 // Apartado 8 - Crea una función que reciba un array y devuelva su último elemento.
 // Prueba tu función con varios arrays de diferentes longitudes.
 
-function array (myArray) {
+function array(myArray) {
     return myArray[myArray.length - 1];
 }
 console.log(array([0, 1, 2, 3, 4]));
@@ -97,7 +97,7 @@ console.log(`La cantidad de patas totales son: ${countLegs(1, 2, 2)}`);
 // Apartado 10 - Crea una función que determine si dos datos recibidos por argumentos son
 // del mismo tipo.
 
-function sameType (x, y) {
+function sameType(x, y) {
     if (typeof x === typeof y) {
         return true;
     } else {
@@ -111,7 +111,7 @@ console.log(sameType(1, "hola"));
 // donde cada elemento será una palabra de la frase original. Investigar método existente
 // de los strings para este fin.
 
-function stringToArray (string) {
+function stringToArray(string) {
     return string.split(" ");
 }
 console.log(stringToArray("Hola me llamo María"));
@@ -145,3 +145,160 @@ const address2 = {
 }
 
 console.log(address2);
+
+
+// Apartado 13 - Los dominios en la web, se componen del nombre de dominio (codespaceacademy) y
+// de un TLD (top-level-domain) como, por ejemplo .com/ .es/ .org, etc. Crea una función que se 
+// llame parseDomain() que reciba por argumento un string y devuelva un objeto con dos propiedades:
+// domain y tld.
+
+function parseDomain(string) { // "marca.com"
+    const domainParts = string.split("."); // ["marca", "com"]
+    const objeto = {
+        domain: domainParts[0],
+        tld: domainParts[1]
+    }; // { domain: "marca", tld: "com"}
+    return objeto;
+}
+console.log(parseDomain("marca.com"));
+
+
+// Apartado 14 - Nos han prohibido el uso del operador de igualdad estricta (===), pero queremos poder
+// seguir utilizando esa funcionalidad. Crea una función que devuelva true si dos números tienen el 
+// mismo valor y el mismo tipo de dato. Debemos usar el operador lógico "&&". Prueba tu función con
+// estos dos inputs: 
+// strictEquality("5", 5); //false
+// strictEquality(5, 5); //true
+
+function strictEquality(x, y) {
+    if (x == y && typeof x == typeof y) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(strictEquality(5, 5));
+
+
+// Apartado 15 - Crea una función que reciba dos strings y devuelva true si tienen la misma longitud y false 
+// en caso contrario.
+
+function sameLength (string1, string2) {
+    if (string1.length === string2.length) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(sameLength("hola", "María"));
+
+
+// Apartado 16 - Crea una función que reciba un string y determine si está vacío sin utilizar la propiedad
+// length.
+
+function emptyString(string) {
+    if (string === "") {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(emptyString(""));
+
+
+// Apartado 17 - Imprimir elemento a elemento el array del apartado 1 de cuatro formas diferentes:
+// while; for; for of; forEach.
+
+let otherArray = ["Hola", "amigos", "míos", "soy", "María"];
+console.log(otherArray);
+
+//While
+let i = 0;
+
+while (i <= otherArray.length-1) {
+    console.log(`Índice ${i}: ${otherArray[i]}`);
+    i++;
+}
+
+//For
+for (let i = 0; i <= otherArray.length-1; i++) {
+    console.log(`Índice ${i}: ${otherArray[i]}`);
+}
+
+//For of
+for (let item of otherArray) {
+    console.log(item);
+}
+
+//forEach
+otherArray.forEach((item, index) => console.log(`Índice ${index}: ${item}`));
+
+
+// Apartado 18 - Crea una función que reciba un string y un número N y devuelva el string
+// original repetido N veces.
+
+function repeatString(string, N) {
+    
+    let resultado = "";
+
+    for (let i = 1; i <= N; i++) {
+    resultado += string;
+    }
+
+    console.log(resultado);
+}
+repeatString("hola ", 4);
+
+
+
+// Apartado 19 - Crea una función que recibe un objeto con dos campos, votos positivos y votos
+// negativos y que devuelva la cuenta final.
+
+function getVoteCount(object) {
+    let resultado = object.upVotes - object.downVotes;
+    return resultado;
+}
+console.log(`El resultado es: ${getVoteCount({upVotes: 50, downVotes: 20})}`);
+
+
+
+// Apartado 20 - Crea una función que recibe un array de tipos de datos mezclados y que devuelva
+// otro array con el tipo de cada uno de los elementos.
+
+function getTypes(array) {
+    const myArray3 = [];
+    for (let i = 0; i < array.length; i++) {
+        myArray3[i] = typeof array[i];
+    }
+    return myArray3;
+}
+console.log(getTypes(["hola", 2, {}, [], null, undefined]));
+
+
+// Apartado 21 - Función que dado un array de números con formato string devuelva un array con los
+// números ya parseados.
+
+function getParsedNumbers(array) {
+    const myArray4 = [];
+    for (let i = 0; i < array.length; i++) {
+        myArray4[i] = parseFloat(array[i]); 
+    }
+    return myArray4;
+}
+console.log(getParsedNumbers(["1", "2.5", "0.8", "5"]));
+
+
+// Apartado 22 - Crea una función de flecha que devuelva "Positivo" si el número que recibe por argumento es mayor 
+// o igual que cero y "Negativo" en caso contrario. Usa el operador ternario.
+
+const isPositive = (num) => num >= 0 ? "Positivo" : "Negativo";
+
+console.log(isPositive(-3));
+
+
+
+
+
+
+
+
