@@ -71,7 +71,7 @@ console.log(numero(2));
 
 const edad = (numero) => numero * 365;
 
-console.log(edad(2));
+console.log(`Los días vividos son: ${edad(2)}`);
 
 
 // Apartado 8 - Crea una función que reciba un array y devuelva su último elemento.
@@ -80,7 +80,7 @@ console.log(edad(2));
 function array(myArray) {
     return myArray[myArray.length - 1];
 }
-console.log(array([0, 1, 2, 3, 4]));
+console.log(`La última posición del array([0, 1, 2, 3, 4]) es: ${array([0, 1, 2, 3, 4])}`);
 
 
 // Apartado 9 - Un granjero necesita contar la cantidad de patas de los animales en 
@@ -275,6 +275,7 @@ function getTypes(array) {
 console.log(getTypes(["hola", 2, {}, [], null, undefined]));
 
 
+
 // Apartado 21 - Función que dado un array de números con formato string devuelva un array con los
 // números ya parseados.
 
@@ -288,6 +289,7 @@ function getParsedNumbers(array) {
 console.log(getParsedNumbers(["1", "2.5", "0.8", "5"]));
 
 
+
 // Apartado 22 - Crea una función de flecha que devuelva "Positivo" si el número que recibe por argumento es mayor 
 // o igual que cero y "Negativo" en caso contrario. Usa el operador ternario.
 
@@ -296,6 +298,97 @@ const isPositive = (num) => num >= 0 ? "Positivo" : "Negativo";
 console.log(isPositive(-3));
 
 
+
+// Apartado 23 - Crea una función que dado un array cualquiera y un índice, borre el elemento guardado en ese índice.
+
+function myArray5(array, i) {
+    array.splice(i, 1);
+    return array;
+}
+
+console.log(myArray5(["Lemon", "Orange", "Coca-cola"], 1));
+
+
+
+// Apartado 24 - Usando la función del apartado anterior, crea otra función que dado una array de números y un 
+// número a filtrar, devuelva un array borrando todas las apariciones de dicho número.
+
+function filterNumber(array, num) {
+    for (let i = array.length - 1; i >= 0; i--) {
+       if (array[i] === num) {
+           myArray5(array, i);
+       }
+    }
+    return array;
+    // return array.filter((element) => element != num);
+}
+
+console.log(filterNumber([4, 5, 5, 5, 5, 6], 5));
+
+
+
+// Apartado 25 - Crea dos funciones que recibirán un objeto, la primera devolverá un array con los nombres de todas
+// sus propiedades. La segunda devolverá un array con los valores de dichas propiedades. Investigar los métodos
+// keys y values del prototipo de Object.
+
+function funcion1(object) {
+    return Object.keys(object);
+}
+
+console.log(funcion1({name: "Pablo", surname: "Pérez", age: "20"}));
+
+function funcion2(object) {
+    return Object.values(object);
+}
+
+console.log(funcion2({name: "Pablo", surname: "Pérez", age: "20"}));
+
+
+
+// Apartado 26 - Crea una función que invierta un string.
+
+function stringReverse(cadena) {
+    let cadenaRevertida = "";
+    for(let i = cadena.length-1; i>=0; i--) {
+       cadenaRevertida += cadena[i];
+    }
+    return cadenaRevertida;
+}
+
+console.log(stringReverse("Hola mi nombre es María"));
+
+
+
+// Apartado 27 - Crea una función que compare strings sin tener en cuenta las mayúsculas/ minúsculas.
+
+function compareStrings(str1, str2) {
+    return str1.toLowerCase() === str2.toLowerCase();
+}
+
+console.log(compareStrings("María", "MARÍA"));
+
+
+// Apartado 28 - Crea una función que convierta en mayúscula sólo la primera letra de cada palabra de un string
+// dado. El apartado 11 será de ayuda. Investigar cómo unir un array de strings en un único string.
+
+function capitalize(sentence) {
+    const words = sentence.split(" ");
+    for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        words[i] = word[0].toUpperCase() + word.substring(1);
+    }
+    return words.join(" ");
+}
+
+console.log(capitalize("Hola me llamo María"));
+
+
+// Apartado 29 - Crea una función en una única línea que reciba un valor lógico y devuelva opuesto.
+
+const negate = (logical) => !logical;
+
+console.log(negate(true));
+console.log(negate(false));
 
 
 
