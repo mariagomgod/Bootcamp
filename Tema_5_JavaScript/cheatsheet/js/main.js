@@ -220,7 +220,7 @@ console.log(selectedColors, selectedColors.length);
 selectedColors.shift(); // shift quita el primer elemento del array
 console.log(selectedColors, selectedColors.length);
 
-selectedColors.sort(); // short ordena los elementos del array alfabéticamente y tambiérn se pueden ordernar arrays de objetos
+selectedColors.sort(); // short ordena los elementos del array alfabéticamente y también se pueden ordernar arrays de objetos
 console.log(selectedColors, selectedColors.length);
 
 console.log("El rojo está en el índice", selectedColors.indexOf("red")); // indexOf devuelve el índice del primer elemento

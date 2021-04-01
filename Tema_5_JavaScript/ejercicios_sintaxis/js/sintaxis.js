@@ -24,6 +24,8 @@ myArray2.splice(0, 0, 6, 8); // a partir del índice 0 no eliminar ningún núme
 console.log(`Longitud: ${myArray2.length}`);
 console.log(myArray2);
 
+// Opción 2 en sintaxis2.js
+
 
 // Apartado 3 - Escribe una función nombrada que devuelva true si el argumento
 // dado es de tipo boolean y false en caso contrario.
@@ -178,6 +180,7 @@ function strictEquality(x, y) {
     }
 }
 console.log(strictEquality(5, 5));
+console.log(strictEquality("5", 5));
 
 
 // Apartado 15 - Crea una función que reciba dos strings y devuelva true si tienen la misma longitud y false 
@@ -248,6 +251,8 @@ function repeatString(string, N) {
     console.log(resultado);
 }
 repeatString("hola ", 4);
+
+// Opción 2 en sintaxis2.js
 
 
 
