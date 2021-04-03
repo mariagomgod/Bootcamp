@@ -103,6 +103,36 @@ const selectButton = (e) => parrafo_3.style.color = e.target.value;
 
 select.addEventListener("click", selectButton);
 
+// Apartado 11
+
+const ul_1 = document.getElementById("ul-1");
+const button_5 = document.getElementById("button-5");
+const input_4 = document.getElementById("input-4");
+
+const myArray = new Array();
+
+function pressButton5() {
+    const num = input_4.value;
+    if (myArray.includes(num)) {
+        alert("error");
+    } else {
+        const li = document.createElement("li");
+        ul_1.prepend(li);
+        li.textContent = num;
+        myArray.push(num);
+    }
+}
+
+button_5.addEventListener("click", pressButton5);
+
+// Apartado 12
+
+const button_6 = document.getElementsByClassName("btn")[0];
+
+const pressButton6 = () => button_6.classList.toggle("btn");
+
+button_6.addEventListener("click", pressButton6);
+
 
 
 
