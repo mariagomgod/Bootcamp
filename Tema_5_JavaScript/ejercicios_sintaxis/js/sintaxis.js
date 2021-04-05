@@ -31,11 +31,7 @@ console.log(myArray2);
 // dado es de tipo boolean y false en caso contrario.
 
 function funcion(e) {
-    if (typeof e === "boolean") {
-        return true;
-    } else {
-        return false;
-    }
+    return typeof e === "boolean";
 }
 console.log(funcion(true));
 
@@ -208,6 +204,9 @@ function emptyString(string) {
 }
 console.log(emptyString(""));
 
+// Otra opción:
+// const emptyString = string => string ? true : false; // se le llama falsy values
+
 
 // Apartado 17 - Imprimir elemento a elemento el array del apartado 1 de cuatro formas diferentes:
 // while; for; for of; forEach.
@@ -273,7 +272,7 @@ console.log(`El resultado es: ${getVoteCount({upVotes: 50, downVotes: 20})}`);
 function getTypes(array) {
     const myArray3 = [];
     for (let i = 0; i < array.length; i++) {
-        myArray3[i] = typeof array[i];
+        myArray3[i] = typeof array[i]; // se puede hacer con push
     }
     return myArray3;
 }
@@ -320,9 +319,9 @@ console.log(myArray5(["Lemon", "Orange", "Coca-cola"], 1));
 
 function filterNumber(array, num) {
     for (let i = array.length - 1; i >= 0; i--) {
-       if (array[i] === num) {
-           myArray5(array, i);
-       }
+        if (array[i] === num) {
+            myArray5(array, i);
+        }
     }
     return array;
     // return array.filter((element) => element != num);
