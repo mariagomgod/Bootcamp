@@ -379,7 +379,8 @@ function capitalize(sentence) {
     const words = sentence.split(" ");
     for (let i = 0; i < words.length; i++) {
         const word = words[i];
-        words[i] = word[0].toUpperCase() + word.substring(1);
+        const initial = words[0];
+        words[i] = initial.toUpperCase() + word.substring(1);
     }
     return words.join(" ");
 }
