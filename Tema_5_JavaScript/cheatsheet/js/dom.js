@@ -54,7 +54,7 @@ parent1.classList.remove("bg-dark");
 console.log("Classlist: ", parent1.classList);
 parent1.classList.add("bg-red");
 console.log("Classlist: ", parent1.classList);
-
+parent1.className = "bg-dark" // se utiliza para crear varias cosas a la vez o vaciar todo
 parent1.classList.toggle("bg-red"); // toggle, si no tiene la clase la crea y si la tiene la elimina
 
 parent1.setAttribute("name", "nombre-parent1"); //añade un atributo donde queramos en el HTML

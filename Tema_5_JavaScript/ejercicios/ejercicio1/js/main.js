@@ -30,11 +30,19 @@ button.addEventListener("click", function () {
 const listItems = document.getElementsByTagName("li");
 const image = document.querySelector("img");
 
-const changeImage = (e) => image.src = e.target.textContent;
+const changeImage = (e) => image.src = e.target.textContent; // target es el evento sobre el que se ha hecho click. Es el nodo que dispara el evento.
 
 listItems[0].addEventListener("click", changeImage);
 listItems[1].addEventListener("click", changeImage);
 listItems[2].addEventListener("click", changeImage);
+
+// Otra opción:
+// const list = document.querySelector("ul");
+//const image = document.querySelector("img");
+
+//const changeImage = e => image.src = e.target.textContent;
+
+//list.addEventListener("click", changeImage);
 
 
 
@@ -45,7 +53,10 @@ const parrafo = document.getElementById("parrafo-1");
 const input = document.getElementById("input-1");
 const button_4 = document.getElementById("button-1");
 
-const textInput = () => parrafo.textContent = input.value;
+const textInput = () => {
+    parrafo.textContent = input.value;
+    input.value = ""; // se pone para una vez rellenado el input y darle al botón, se limpie el input.
+}
 
 button_4.addEventListener("click", textInput);
 
@@ -56,7 +67,7 @@ const input_2 = document.getElementById("input-2");
 
 const textInput2 = () => parrafo.textContent = input_2.value;
 
-input_2.addEventListener("keyup", textInput2);
+input_2.addEventListener("input", textInput2);
 
 
 
@@ -74,7 +85,7 @@ function textArea1() {
     }
 }
 
-textArea.addEventListener("keyup", textArea1);
+textArea.addEventListener("input", textArea1);
 
 
 
@@ -88,7 +99,7 @@ const button_6 = document.getElementById("button-2");
 
 function pressButton() {
     if (input_3.value % 2 != 0) {
-        input_3.style.borderColor = "red";
+        input_3.style.border = "4px solid red";
     } else {
         input_3.style.borderColor = "revert"; 
     }
@@ -134,7 +145,7 @@ const select = document.getElementById("select");
 const parrafo_3 = document.getElementById("parrafo-3");
 
 select.addEventListener("change", function (e) {
-    parrafo_3.style.color = e.target.value;
+    parrafo_3.style.color = e.target.value; // el e.target son las opciones del select
 });
 
 

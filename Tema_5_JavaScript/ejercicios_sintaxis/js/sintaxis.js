@@ -361,6 +361,10 @@ function stringReverse(cadena) {
 
 console.log(stringReverse("Hola mi nombre es María"));
 
+// Otra opción:
+// function stringReverse(texto) {
+//    return texto.split(" ").reverse().join(" ");
+// }
 
 
 // Apartado 27 - Crea una función que compare strings sin tener en cuenta las mayúsculas/ minúsculas.
@@ -379,13 +383,14 @@ function capitalize(sentence) {
     const words = sentence.split(" ");
     for (let i = 0; i < words.length; i++) {
         const word = words[i];
-        const initial = words[0];
+        const initial = word[0];
         words[i] = initial.toUpperCase() + word.substring(1);
     }
     return words.join(" ");
 }
 
-console.log(capitalize("Hola me llamo María"));
+console.log(capitalize("hola me llamo maría"));
+
 
 
 // Apartado 29 - Crea una función en una única línea que reciba un valor lógico y devuelva opuesto.
