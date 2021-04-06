@@ -159,7 +159,7 @@ const pares = document.getElementById("pares");
 const impares = document.getElementById("impares");
 const p3 = document.getElementById("num");
 
-function getRandom() {
+function getRandomNumber() {
     const aleatorio = Math.ceil(10 * Math.random());
     totales.textContent++;
     if (aleatorio % 2 == 0) {
@@ -170,7 +170,7 @@ function getRandom() {
     p3.textContent = "El número generado es: " + aleatorio;
 }
 
-button_10.addEventListener("click", getRandom);
+button_10.addEventListener("click", getRandomNumber);
 
 
 // Apartado 11 - Construir una lista que tenga números. Añadir un input donde poder añadir
@@ -181,7 +181,7 @@ const ul_2 = document.getElementById("ul-2");
 const input_4 = document.getElementById("input-4");
 const button_11 = document.getElementById("button-6");
 
-const myArray = new Array();
+const myArray = [];
 
 function addNumber() {
     const num = input_4.value;
@@ -200,7 +200,7 @@ button_11.addEventListener("click", addNumber);
 
 // Apartado 12 - Crearemos una clase .btn en CSS que le de ciertos estilos a un botón. Al
 // hacer click en el botón haremos "toggle" o alternaremos esa clase, es decir, si está 
-// presente la quitarremos y si no está, la añadiremos.
+// presente la quitaremos y si no está, la añadiremos.
 
 const button_12 = document.getElementsByClassName("btn")[0];
 
