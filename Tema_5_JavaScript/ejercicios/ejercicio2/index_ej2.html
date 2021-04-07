@@ -7,6 +7,7 @@
     <title>Ejercicio 2</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="css/ej_2.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -14,12 +15,20 @@
     <div class="container">
         <h1 class="mt-4">Usuarios</h1>
 
-        <select class="custom-select" id="userSelect"></select>
+        <select class="custom-select mb-3" id="userSelect"></select>
 
-        <ul class="list-group my-2" id="userInfo"></ul>
+        <ul class="list-group my-2" id="userInfo">
+            <li class="list-group-item"><span class="userField">name:&nbsp;</span><span id="name"></span></li>
+            <li class="list-group-item"><span class="userField">firstLastName:&nbsp;</span><span id="firstLastName"></span></li>
+            <li class="list-group-item"><span class="userField">secondLastName:&nbsp;</span><span id="secondLastName"></span></li>
+            <li class="list-group-item"><span class="userField">email:&nbsp;</span><span id="email"></span></li>
+            <li class="list-group-item"><span class="userField">age:&nbsp;</span><span id="age"></span></li>
+            <li class="list-group-item"><span class="userField">city:&nbsp;</span><span id="city"></span></li>
+            <li class="list-group-item"><span class="userField">nProducts:&nbsp;</span><span id="nProducts"></span></li>
+        </ul>
 
-        <button class="btn btn-success" id="incrementButton">Incrementar</button>
-        <button class="btn btn-outline-danger" id="emptyButton">Vaciar</button>
+        <button class="btn btn-success mt-3 mr-2" id="incrementButton">Incrementar</button>
+        <button class="btn btn-outline-danger mt-3" id="emptyButton">Vaciar</button>
     </div>
 
 

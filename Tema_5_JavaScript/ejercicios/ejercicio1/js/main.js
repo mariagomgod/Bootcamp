@@ -191,7 +191,7 @@ function addNumber() {
         const li = document.createElement("li");
         ul_2.prepend(li);
         li.textContent = num;
-        myArray.push(num);
+        myArray.push(num); // rellenamos el array porque tenemos que recordar más de un objeto
     }
 }
 
