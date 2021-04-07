@@ -160,9 +160,9 @@ const impares = document.getElementById("impares");
 const p3 = document.getElementById("num");
 
 function getRandomNumber() {
-    const aleatorio = Math.ceil(10 * Math.random());
+    const aleatorio = Math.ceil(100 * Math.random());
     totales.textContent++;
-    if (aleatorio % 2 == 0) {
+    if (aleatorio % 2 === 0) {
         pares.textContent++;
     } else {
         impares.textContent++;
@@ -202,18 +202,21 @@ button_11.addEventListener("click", addNumber);
 // hacer click en el botón haremos "toggle" o alternaremos esa clase, es decir, si está 
 // presente la quitaremos y si no está, la añadiremos.
 
-const button_12 = document.getElementsByClassName("btn")[0];
+const button_12 = document.getElementsByClassName("btn")[0]; 
 
 button_12.addEventListener("click", () => button_12.classList.toggle("btn"));
 
 
 // Apartado extra - Refactorizar el código con un único forEach.
 
-const buttons = document.getElementsByClassName('btn');
+const buttons = document.getElementsByClassName('btn'); // Devuelve HTM Collection // Si utilizáramos 
+//querySelector o querySelectorAll, devuelve un NodeList que tiene disponible forEach.
+
 
 Array.from(buttons).forEach(element => {
     element.addEventListener('click', () => element.style.backgroundColor = "red");
 });
+
 
 
 
