@@ -76,6 +76,60 @@ emptyButton.addEventListener("click", handleClick);
 
 
 
+// Otra opción de apartados 5, 6, 7 y 8:
+
+// Rellenar la lista con la info de un usuario.
+
+
+//function fillList(user) {
+
+//  list.innerHTML = "";
+
+// for (const propertyName in user) {
+// const value = user[propertyName];
+
+//   if (typeof value !== "function") {
+//      const newListItem = document.createElement("li");
+//      newListItem.innerHTML = `<b>${propertyName}:</b> ${value}`;
+//      newListItem.classList.add("list-group-item");
+//      list.appendChild(newListItem);
+//      } 
+
+//  }
+
+//}
+
+// Estado inicial
+// fillList(users[0]);
+
+//function processProducts(e) {
+//    const selectedUsers = users.find((user) => user.name === select.value)); 
+//    if (e.target === incrementButton) {
+//        selectedUser.incrementProducts();
+//    } else {
+//        selectedUser.emptyProducts();
+//    }
+//    fillList(selectedUser); // se actualiza la lista
+//}
+
+
+// Añadir listeners.
+
+// select.addEvenListener("change", e => {
+//    const selectedUsers = users.find((user) => user.name === select.value));
+//    fillList(selectedUser); // se actualiza la lista
+// });
+
+//incrementButton.addEventListener("click", processProducts);
+//emptyButton.addEventListener("click", processProducts);
+
+
+
+// for in es para acceder a las propiedades de un objeto
+// innerHTML lo utilizamos para poder darle una propiedad CSS a un determinado contenido de texto
+
+
+
 
 
 

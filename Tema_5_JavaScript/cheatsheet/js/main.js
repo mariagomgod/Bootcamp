@@ -395,6 +395,87 @@ let squareV2 = number => number * number;
 console.log(squareV2(6));
 
 
+
+// Higher Order Functions
+
+// Map
+let arr1 = [1, 2, 3];
+let arr2 = [];
+
+for (let num of arr1) {
+    arr2.push(num * 2);
+}
+
+console.log(arr1, arr2);
+
+arr1 = [1, 2, 3];
+arr2 = arr1.map(num => num * 2);
+
+console.log("Resultado con map: ", arr1, arr2);
+
+// Ejercicio: A partir de un array con años de nacimiento, calcular edades.
+
+const birthYears = [1980, 1990, 1975, 1970];
+const ages = birthYears.map(num => 2021 - num);
+
+console.log(ages);
+
+// Filter
+const prices = [150, 50, 49, 51, 15, 237];
+const expensives = [];
+
+for (let price of prices) {
+    if (price >= 50) {
+        expensives.push(price);
+    }
+}
+
+console.log(expensives);
+
+prices = [150, 50, 49, 51, 15, 237];
+const expensives = prices.filter(price => price >= 50);
+
+console.log(expensives);
+
+const cars = [
+    {
+        brand: "BMW",
+        year: 1990,
+        plateNumber: "HGJ1282"
+    },
+    {
+        brand: "Mercedes",
+        year: 2010,
+        plateNumber: "BXC1234"
+    },
+    {
+        brand: "Volvo",
+        year: 2021,
+        plateNumber: "LKJ1293"
+    },
+];
+
+console.log(cars.filter(car => car.year > 2008));
+console.log(cars.filter(car => car.plateNumber.includes("L")));
+console.log(cars.map(car => car.brand)); // el array imprime solo la marca 
+
+// Sort
+console.log(cars);
+
+cars.sort((car1, car2) => car1.year - car2.year);
+
+console.log(cars);
+
+
+
+
+
+
+
+
+
+
+
 //------------------------------Bucles / Loops---------------------------------
 
 // Bucle For
