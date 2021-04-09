@@ -31,23 +31,23 @@ function updateTable() {
 
     tBody.innerHTML = ""; // vacío el tbody
 
-    for (const book of books) {
-        const newRow = document.createElement("tr");
-        tBody.appendChild(newRow);
+    for (const book of books) { 
+        const newRow = document.createElement("tr"); // creo una fila
+        tBody.appendChild(newRow); // añado la fila al tbody
 
         for (const propertyName in book) {
-            const column = document.createElement("td");
-            newRow.appendChild(column);
-            column.textContent = book[propertyName];
+            const column = document.createElement("td"); // creo una columna
+            newRow.appendChild(column); // añado la fila a la columna
+            column.textContent = book[propertyName]; // pinto en la columna el valor de la propiedad correspondiente del libro
         }
 
-        const column = document.createElement("td");
-        newRow.appendChild(column);  
-        const removeButton = document.createElement("button");
-        column.appendChild(removeButton);
-        removeButton.textContent = "Remove"; 
-        removeButton.classList.add("btn", "btn-danger"); // creo el botón tal cuál con las clases de Bootstrap
-        removeButton.addEventListener("click", () => removeBook(book));
+        const column = document.createElement("td"); // creo la última columna
+        newRow.appendChild(column); // añado la columna a la fila correspondiente
+        const removeButton = document.createElement("button"); // creo el botón
+        column.appendChild(removeButton); // añado el botón a la columna correspondiente
+        removeButton.textContent = "Remove"; // doy nombre al botón
+        removeButton.classList.add("btn", "btn-danger"); // creo el botón tal cual con las clases de Bootstrap
+        removeButton.addEventListener("click", () => removeBook(book)); // añado al manejador click la función que borra el libro del array
     }
 }
 updateTable(); // pintado inicial de la tabla
