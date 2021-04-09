@@ -198,6 +198,17 @@ person2.talk();
 person3.talk();
 
 
+// How to copy and object
+let obj1 = {property: 5};
+let obj2 = obj1; // NO ES UNA COPIA. ES EL MISMO OBJETO CON DOS NOMBRES.
+
+obj2 = {...obj1}; // Copia superficial que usaremos prácticamente siempre.
+obj2 = JSON.parse(JSON.stringify(obj1)); // Copia profunda o total.
+
+let arr = [1, 2, 3];
+let arr2 = [0, ...arr, 4]; // Output: Array(5) [0, 1, 2, 3, 4]
+console.log(arr2);
+
 // Object Constructor using functions
 
 function Car(brand, color, weight, topSpeed) {
@@ -470,13 +481,6 @@ console.log(cars);
 const arr = [10, 7, 13, 20];
 
 console.log(arr.reduce((sum, currentNumber) => sum + currentNumber, 0));
-
-
-
-
-
-
-
 
 
 //------------------------------Bucles / Loops---------------------------------
