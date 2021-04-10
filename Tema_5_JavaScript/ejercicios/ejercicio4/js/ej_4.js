@@ -51,3 +51,22 @@ function updateTable() {
     }
 }
 updateTable(); // pintado inicial de la tabla
+
+const bookForm = document.getElementById("bookForm");
+
+function addNewBook() {
+    const id = books.length + 1; // books.length es el id del libro n y calculo el id del siguiente libro (n + 1).
+    const title = document.getElementById("title");
+    const author = document.getElementById("author");
+    const sales = document.getElementById("sales");
+    const price = document.getElementById("price");
+    books.push(new Book(id, title.value, author.value, sales.value, price.value)); // añado un nuevo libro al array
+    updateTable(); // vuelvo a pintar la tabla
+    bookForm.reset(); // con reset restauro el formulario (básicamente vacío los inputs)
+    return false; // para que no haga submit al clicar el botón
+}
+
+// document.getElementById("save").addEventListener("click", addNewBook); 
+// No le añado un manejador de evento porque quiero que sea el formulario
+// el que controle cuándo se hace el submit (entonces añado onsubmit al formulario
+// en el html). Es para que la validación funcione.
