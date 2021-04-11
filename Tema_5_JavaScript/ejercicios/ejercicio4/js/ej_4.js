@@ -21,8 +21,10 @@ const books = [
 
 const tBody = document.getElementById("information");
 
-function removeBook(book) {
-    const index = books.indexOf(book); // localizo el objeto book dentro del array
+function removeBook(bookToRemove) {
+    // Me aseguro de que elimino el libro correcto incluso si otros campos como las ventas o el precio cambian.
+    const bookFound = books.find((book) => book.title === bookToRemove.title && book.author === bookToRemove.author); 
+    const index = books.indexOf(bookFound); // localizo el objeto book dentro del array
     books.splice(index, 1); // elimino un elemento empezando desde la posición index
     updateTable(); // volvemos a pintar la tabla
 }
@@ -63,7 +65,6 @@ function addNewBook() {
     books.push(new Book(id, title.value, author.value, sales.value, price.value)); // añado un nuevo libro al array
     updateTable(); // vuelvo a pintar la tabla
     bookForm.reset(); // con reset restauro el formulario (básicamente vacío los inputs)
-    return false; // para que no haga submit al clicar el botón
 }
 
 // document.getElementById("save").addEventListener("click", addNewBook); 
