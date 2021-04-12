@@ -20,12 +20,21 @@
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
                     <th scope="col">Sales</th>
-                    <th scope="col">Price</th>
+                    <th id="priceColumn" style="cursor:pointer" scope="col">Price</th>
                     <th scope="col">Remove</th>
                 </tr>
             </thead>
 
             <tbody id="information"></tbody>
+
+            <input type="text" id="bookToFind" class="mb-3" placeholder="Introduce el nombre del libro">
+
+            <tfoot id="totalPrices">
+                <tr>
+                    <td id="totalPrice" style="font-weight: bold; font-size: large"></td>
+
+                </tr>
+            </tfoot>
 
         </table>
 

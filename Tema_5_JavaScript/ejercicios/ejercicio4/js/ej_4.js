@@ -20,14 +20,16 @@ const books = [
 ];
 
 const tBody = document.getElementById("information");
+const totalPrices = document.getElementById("totalPrices");
+const totalPrice = document.getElementById("totalPrice");
 
 function removeBook(book) {
     const index = books.indexOf(book); // localizo el objeto book dentro del array
     books.splice(index, 1); // elimino un elemento empezando desde la posición index
-    updateTable(); // volvemos a pintar la tabla
+    updateTable(books); // volvemos a pintar la tabla utilizando el array de books
 }
 
-function updateTable() {
+function updateTable(books) {
 
     tBody.innerHTML = ""; // vacío el tbody
 
@@ -49,8 +51,12 @@ function updateTable() {
         removeButton.classList.add("btn", "btn-danger"); // creo el botón tal cual con las clases de Bootstrap
         removeButton.addEventListener("click", () => removeBook(book)); // añado al manejador click la función que borra el libro del array
     }
+    
+    let total = books.reduce((sum, book) => sum + book.price, 0);
+    totalPrice.textContent = `Total sum of books prices: ${total}`;
 }
-updateTable(); // pintado inicial de la tabla
+
+updateTable(books); // pintado inicial de la tabla pasándole el array books
 
 const bookForm = document.getElementById("bookForm");
 
@@ -61,7 +67,7 @@ function addNewBook() {
     const sales = document.getElementById("sales");
     const price = document.getElementById("price");
     books.push(new Book(id, title.value, author.value, sales.value, price.value)); // añado un nuevo libro al array
-    updateTable(); // vuelvo a pintar la tabla
+    updateTable(books); // vuelvo a pintar la tabla
     bookForm.reset(); // con reset restauro el formulario (básicamente vacío los inputs)
 }
 
@@ -69,6 +75,45 @@ function addNewBook() {
 // No le añado un manejador de evento porque quiero que sea el formulario
 // el que controle cuándo se hace el submit (entonces añado onsubmit al formulario
 // en el html). Es para que la validación funcione.
+
+
+// Ejercicio 5
+
+// Apartado 1
+const inputBookToFind = document.getElementById("bookToFind");
+
+function bookToFind(e) {
+    const filtered = books.filter(book => book.title.toLowerCase().includes(e.target.value.toLowerCase()));
+    updateTable(filtered); // volvemos a pintar la tabla pasándole el resultado de filtrar los libros
+}
+inputBookToFind.addEventListener("keyup", bookToFind);
+
+
+// Apartado 2
+const priceButton = document.getElementById("priceColumn");
+
+let sortedAscending = false; // recordamos si la última vez ordenamos de manera ascendente o nunca
+// se llegó a ordenar
+
+function orderedPrices() {
+    
+    let sortedPrices;
+
+    if (sortedAscending) {
+        sortedPrices = books.sort((book1, book2) => book2.price - book1.price); 
+    } else {
+        sortedPrices = books.sort((book1, book2) => book1.price - book2.price);  
+    }
+    updateTable(sortedPrices); // volvemos a pintar la tabla pasándole el resultado de ordenar
+    // los precios
+    sortedAscending = !sortedAscending; // actualizamos sortedAscending para que recuerde como
+    // hemos ordenado ahora, para que la siguiente vez ordene al contrario
+}
+priceButton.addEventListener("click", orderedPrices);
+
+
+// Apartado 3
+// la suma está dentro de la función de la tabla updateTable()
 
 
 
@@ -132,3 +177,6 @@ addBookButton.addEventListener("click", e => {
 });
 
  */
+
+
+
