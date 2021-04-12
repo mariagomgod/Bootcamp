@@ -55,7 +55,7 @@ updateTable(); // pintado inicial de la tabla
 const bookForm = document.getElementById("bookForm");
 
 function addNewBook() {
-    const id = books.length + 1; // books.length es el id del libro n y calculo el id del siguiente libro (n + 1).
+    const id = books[books.length-1].id + 1; // books.length es el id del libro n y calculo el id del siguiente libro (n + 1).
     const title = document.getElementById("title");
     const author = document.getElementById("author");
     const sales = document.getElementById("sales");
@@ -69,3 +69,66 @@ function addNewBook() {
 // No le añado un manejador de evento porque quiero que sea el formulario
 // el que controle cuándo se hace el submit (entonces añado onsubmit al formulario
 // en el html). Es para que la validación funcione.
+
+
+
+/* // Opción planteada por el profesor:
+
+const booksTbody = document.getElementById("information");
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const salesInput = document.getElementById("sales");
+const priceInput = document.getElementById("price");
+const addBookButton = document.getElementById("save");
+
+function updateTable() {
+
+    booksTbody.innerHTML = ""; // vaciamos el tbody por completo
+
+    books.forEach(book => { //generamos de nuevo todas las filas
+        booksTbody.innerHTML += 
+        `<tr>
+            <td>${book.id}</td>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.sales}</td>
+            <td>${book.price}</td>
+            <td
+                button class="btn btn-danger" id="${book.id}">Remove</button>
+            </td>
+        </tr>`;
+    });
+}
+
+booksTbody.onclick = e => { // el listener click se le ha puesto al tbody completo
+    // antes definimos el array books con let para poder utilizar filter
+    if (e.target.tagName === "BUTTON") {
+        books = books.filter(book => book.id != e.target.id); // e.target.id (id del botón). Eliminamos un libro. Devuelve 
+        // todos los libros menos aquel que tenga ese id
+        updateTable();// volvemos a pintar la tabla
+    }
+};
+
+updateTable(); // estado inicial 
+
+addBookButton.addEventListener("click", e => {
+
+    e.preventDefault(); // preventDefault(): todo el comportamiento por defecto en el html me lo quita
+    // Evita que recargue la página el formulario
+    
+    const newId = books[books.length-1].id + 1; // accedo al último libro del array books y le sumo 1
+
+    books.push(new Book(
+        newId, 
+        titleInput.value, 
+        authorInput.value, 
+        salesInput.value, 
+        priceInput.value)
+    );
+
+    updateTable(); // volvemos a pintar la tabla
+
+    bookForm.reset(); // reseteamos el formulario (se vacían los inputs)
+});
+
+ */
