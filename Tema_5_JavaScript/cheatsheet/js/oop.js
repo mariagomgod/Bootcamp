@@ -105,6 +105,10 @@ class Animal {
     makeSound() {
         console.log(`This ${this.type} named ${this.name} goes ${this.sound}`);
     }
+
+    static compareAnimals(animal1, animal2) {
+        return animal1.type === animal2.type;
+    }
 }
 
 class Cat extends Animal {
@@ -129,6 +133,8 @@ console.log(conBotas);
 conBotas.makeSound();
 dylan.makeSound();
 danko.makeSound();
+
+console.log(Animal.compareAnimals(dylan, danko));
 
 
 
