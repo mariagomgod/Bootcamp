@@ -209,9 +209,8 @@ button_12.addEventListener("click", () => button_12.classList.toggle("btn"));
 
 // Apartado extra - Refactorizar el código con un único forEach.
 
-const buttons = document.getElementsByClassName('btn'); // Devuelve HTM Collection // Si utilizáramos 
+const buttons = document.getElementsByClassName('btn-1'); // Devuelve HTM Collection // Si utilizáramos 
 //querySelector o querySelectorAll, devuelve un NodeList que tiene disponible forEach.
-
 
 Array.from(buttons).forEach(element => {
     element.addEventListener('click', () => element.style.backgroundColor = "red");

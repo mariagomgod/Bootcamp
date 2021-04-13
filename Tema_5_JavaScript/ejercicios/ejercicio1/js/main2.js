@@ -1,145 +1,176 @@
 // Apartado 1
 
 const div = document.getElementById("div");
-const p = document.createElement("p");
+const p1 = document.createElement("p");
 const p2 = document.createElement("p");
 
-p.textContent = "Hola mundo";
+p1.textContent = "Hola mundo";
 p2.textContent = "Adiós mundo";
 
-div.append(p, p2);
+div.append(p1, p2);
 
 // Apartado 2
 
 const button = document.getElementById("button");
 
-button.addEventListener("click", function (e) {
+button.addEventListener("click", function () {
     document.body.style.backgroundColor = "lightblue";
 });
 
 // Apartado 3
 
-const listUrl = document.getElementsByTagName("li");
+const listImages = document.getElementsByTagName("li");
 const image = document.getElementById("imagen");
 
-const listImages = (e) => image.src = e.target.textContent;
+const changeImage = e => image.src = e.target.textContent;
 
-listUrl[0].addEventListener("click", listImages);
-listUrl[1].addEventListener("click", listImages);
-listUrl[2].addEventListener("click", listImages);
+/* listImages[0].addEventListener("click", changeImage);
+listImages[1].addEventListener("click", changeImage);
+listImages[2].addEventListener("click", changeImage); */
 
-// apartado 4
+Array.from(listImages).forEach(element => {
+    element.addEventListener("click", changeImage);
+});
+
+// Apartado 4
 
 const input = document.getElementById("input");
-const button2 = document.getElementById("button-2");
-const parrafo = document.getElementById("parrafo");
+const button_2 = document.getElementById("button-2");
+const parrafo_2 = document.getElementById("parrafo");
 
-const pressButton = () => parrafo.textContent = input.value;
+const textInput = () => {
+    parrafo_2.textContent = input.value;
+    input.value = "";
+}
 
-button2.addEventListener("click", pressButton);
+button_2.addEventListener("click", textInput);
 
-// apartado 4.2
+// Apartado 4.2
 
 const input_2 = document.getElementById("input-2");
 
-const pressKey = () => parrafo.textContent = input_2.value;
+const textInput2 = () => parrafo_2.textContent = input_2.value;
 
-input_2.addEventListener("keyup", pressKey);
+input_2.addEventListener("input", textInput2);
 
 // Apartado 5
 
 const textArea = document.getElementById("textArea");
-const parrafo_2 = document.getElementById("parrafo-2");
+const parrafo_3 = document.getElementById("parrafo-2");
 
-function pressKeyUser () {
+function textArea1() {
     if (textArea.value.length > 15) {
-       parrafo_2.textContent = textArea.value;
+        parrafo_3.textContent = textArea.value;
     } else {
-        parrafo_2.textContent = "";
+        parrafo_3.textContent = "";
     }
-} 
-textArea.addEventListener("keyup", pressKeyUser);
+}
+
+textArea.addEventListener("input", textArea1);
 
 // Apartado 6
 
 const input_3 = document.getElementById("input-3");
 const button_3 = document.getElementById("button-3");
 
-function pressButton3 () {
+function validateInput() {
     if (input_3.value % 2 != 0) {
-        input_3.style.borderColor = "red";
+        input_3.style.border = "4px solid red";
     } else {
         input_3.style.borderColor = "revert";
     }
 }
 
-button_3.addEventListener("click", pressButton3);
+button_3.addEventListener("click", validateInput);
 
-// apartado 7
+// Apartado 7
 
 const ul = document.getElementById("ul");
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 0; i < 10; i++) {
     const li = document.createElement("li");
-    li.textContent = "Elemento " + i;
+    li.textContent = `Elemento ${i}`;
     ul.appendChild(li);
 }
 
-// apartado 8
+// Apartado 8
 
-const a = document.getElementById("link");
+const link = document.getElementById("link");
 const button_4 = document.getElementById("button-4");
 
-const pressButton4 = () => a.target = "_blank";
+const linkButton = () => link.target = "_blank";
 
-button_4.addEventListener("click", pressButton4);
+button_4.addEventListener("click", linkButton);
 
-// apartado 9
+// Apartado 9
 
+const parrafo_4 = document.getElementById("parrafo-3");
 const select = document.getElementById("select");
-const parrafo_3 = document.getElementById("parrafo-3");
 
-const selectButton = (e) => parrafo_3.style.color = e.target.value;
+function selectColor(e) {
+    parrafo_4.style.color = e.target.value;
+}
 
-select.addEventListener("click", selectButton);
+select.addEventListener("change", selectColor);
+
+// Apartado 10
+
+const button_5 = document.getElementById("button-5");
+const inputNumero = document.getElementById("num");
+const ul_2 = document.getElementById("ul-1");
+const totales = document.getElementById("totales");
+const pares = document.getElementById("pares");
+const impares = document.getElementById("impares");
+
+function getRandomNumber() {
+    const aleatorio = Math.floor(100 * Math.random());
+    totales.textContent++;
+    if (aleatorio % 2 === 0) {
+        pares.textContent++;
+    } else {
+        impares.textContent++;
+    }
+}
+
+button_5.addEventListener("click", getRandomNumber);
 
 // Apartado 11
 
-const ul_1 = document.getElementById("ul-1");
-const button_5 = document.getElementById("button-5");
+const numList = document.getElementById("ul-1");
 const input_4 = document.getElementById("input-4");
+const button_6 = document.getElementById("button-6");
 
-const myArray = new Array();
+const myArray = [];
 
-function pressButton5() {
+function numExist() {
     const num = input_4.value;
     if (myArray.includes(num)) {
-        alert("error");
+        alert("Error!");
     } else {
-        const li = document.createElement("li");
-        ul_1.prepend(li);
-        li.textContent = num;
+        const list = document.createElement("li");
+        numList.prepend(list);
+        list.textContent = num;
         myArray.push(num);
     }
 }
 
-button_5.addEventListener("click", pressButton5);
+button_6.addEventListener("click", numExist);
 
 // Apartado 12
 
-const button_6 = document.getElementsByClassName("btn")[0];
+const button_7 = document.getElementsByClassName("btn")[0];
 
-const pressButton6 = () => button_6.classList.toggle("btn");
+button_7.addEventListener("click", () => button_7.classList.toggle("btn"));
 
-button_6.addEventListener("click", pressButton6);
+// Apartado extra
 
+const buttons = document.getElementsByClassName("btn-1");
 
+const colorButton = e => e.target.style.backgroundColor = "red" ;
 
-
-
-
-
-
+Array.from(buttons).forEach(element => {
+    element.addEventListener("click", colorButton)
+});
 
 
 
