@@ -1,78 +1,88 @@
 // Apartado 1
-function User(name, firstLastName, secondLastName, email, age, city) {
-    this.name = name;
-    this.firstLastName = firstLastName;
-    this.secondLastName = secondLastName;
-    this.email = email;
-    this.age = age;
-    this.city = city;
-    this.productsCount = 0;
-    this.incrementProducts = function () {
+class User {
+    constructor(name, firstLastName, secondLastName, email, age, city, productsCount) {
+        this.name = name;
+        this.firstLastName = firstLastName;
+        this.secondLastName = secondLastName;
+        this.email = email;
+        this.age = age;
+        this.city = city;
+        this.productsCount = productsCount;
+    }   
+        
+    incrementProducts() {
         this.productsCount++;
-    };
-    this.emptyProducts = function () {
+    }
+        
+    emptyProducts() {
         this.productsCount = 0;
-    };
+    }
 }
 
 // Apartado 2
 const users = [
-    new User("Fran", "Gómez", "Martínez", "fgmartinez@hotmail.com", 34, "Málaga"),
-    new User("Valeria", "Sanz", "Rodríguez", "vsm@gmail.com", 45, "Sevilla"),
-    new User("Manuel", "Godoy", "Pérez", "mgoperez@yahoo.com", 37, "Jaén"),
-    new User("Sandra", "Jiménez", "López", "sandrajlz@aol.com", 50, "Granada"),
+    new User("Fran", "Gómez", "Fernández", "fgomez@gmail.com", 35, "Málaga", 0),
+    new User("Lucía", "García", "Ruíz", "lgarcia@gmail.com", 41, "Madrid", 0),
+    new User("María", "Núñez", "Coronado", "mnunez@gmail.com", 18, "Albacete", 0),
 ];
 
 // Apartado 3
+
 const select = document.getElementById("userSelect");
-const list = document.getElementById("userInfo");
 const incrementButton = document.getElementById("incrementButton");
 const emptyButton = document.getElementById("emptyButton");
+const userInfo = document.getElementById("userInfo");
 
 // Apartado 4
-for (let user of users) {
+
+for (const user of users) { 
     const newOption = document.createElement("option");
-    select.appendChild(newOption);
     newOption.textContent = user.name;
+    select.appendChild(newOption);
 }
 
 // Apartado 5
 
 function fillList(user) {
 
-    list.innerHTML = "";
+    userInfo.innerHTML = ""; 
 
-    for (let propertyName in user) {
-        const value = user[propertyName];
-        if (typeof value !== "function") { // typeof te devuelve un string. Si es distinto de "function" te crea la lista menos las funciones incrementProduct y emptyProduct
-        const newList = document.createElement("li");
-        newList.innerHTML = `<b>${propertyName}:</b> ${value}`;
-        newList.classList.add("list-group-item");
-        list.appendChild(newList);
+    for (const propertyName in user) {
+        const value = user[propertyName]; 
+
+        if (typeof value !== "function") {
+            const newListItem = document.createElement("li"); 
+            newListItem.innerHTML = `<b>${propertyName}:</b>&nbsp;${value}`;
+            newListItem.classList.add("list-group-item");
+            userInfo.appendChild(newListItem); 
         }
     }
 }
 
+fillList(users[0]); // estado inicial
+
+
 // Apartados 6, 7 y 8
 
-fillList(users[0]); // usuario por defecto
-
-function processProducts(e) {
-    const selectedUsers = users.find((user) => user.name === select.value);
+function handleClick(e) {
+    const selectedUser = users.find(user => user.name === select.value);
     if (e.target === incrementButton) {
-        selectedUsers.incrementProducts();
+        selectedUser.incrementProducts();
     } else {
-        selectedUsers.emptyProducts();
+        selectedUser.emptyProducts();
     }
-    fillList(selectedUsers); // se actualiza la lista
+    fillList(selectedUser);
 }
 
-select.addEventListener("change", function (e) {
-    const selectedUsers = users.find((user) => user.name === e.target.value);
-    fillList(selectedUsers); // se actualiza el select
+select.addEventListener("change", e => {
+    const selectedUser = users.find(user => user.name === select.value);
+    fillList(selectedUser);
 });
 
-incrementButton.addEventListener("click", processProducts);
-emptyButton.addEventListener("click", processProducts);
+incrementButton.addEventListener("click", handleClick);
+emptyButton.addEventListener("click", handleClick);
+
+
+
 
 
