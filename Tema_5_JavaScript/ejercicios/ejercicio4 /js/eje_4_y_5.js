@@ -1,9 +1,11 @@
-function Book(id, title, author, sales, price) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.sales = sales;
-    this.price = price;
+class Book {
+    constructor(id, title, author, sales, price) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.sales = sales;
+        this.price = price;
+    }
 }
 
 const books = [
@@ -18,6 +20,8 @@ const books = [
     new Book(9, "Patria", "Fernando Aramburu", 35, 14),
     new Book(10, "La danza de los tulipanes", "Ibon Martín", 20, 17),
 ];
+
+//let displayedBooks = books; // Para la opción planteada por el profesor
 
 const tBody = document.getElementById("information");
 const totalPrices = document.getElementById("totalPrices");
@@ -53,7 +57,7 @@ function updateTable(books) {
     }
     
     let total = books.reduce((sum, book) => sum + book.price, 0);
-    totalPrice.textContent = `Total sum of books prices: ${total}`;
+    totalPrice.textContent = `Total sum: ${total}`;
 }
 
 updateTable(books); // pintado inicial de la tabla pasándole el array books
@@ -93,7 +97,7 @@ inputBookToFind.addEventListener("keyup", bookToFind);
 const priceButton = document.getElementById("priceColumn");
 
 let sortedAscending = false; // recordamos si la última vez ordenamos de manera ascendente o nunca
-// se llegó a ordenar
+// se llegó a ordenar. Estado inicial.
 
 function orderedPrices() {
     
@@ -117,6 +121,7 @@ priceButton.addEventListener("click", orderedPrices);
 
 
 
+
 /* // Opción planteada por el profesor:
 
 const booksTbody = document.getElementById("information");
@@ -126,11 +131,13 @@ const salesInput = document.getElementById("sales");
 const priceInput = document.getElementById("price");
 const addBookButton = document.getElementById("save");
 
+const tfoot = document.getElementById("totalPrices");
+
 function updateTable() {
 
     booksTbody.innerHTML = ""; // vaciamos el tbody por completo
 
-    books.forEach(book => { //generamos de nuevo todas las filas
+    displayedBooks.forEach(book => { //generamos de nuevo todas las filas
         booksTbody.innerHTML += 
         `<tr>
             <td>${book.id}</td>
@@ -143,12 +150,16 @@ function updateTable() {
             </td>
         </tr>`;
     });
+
+    // apartado 3 del ejercicio 5
+    const totalPrice = displayedBooks.reduce((priceSum, book) => priceSum + book.price, 0);
+    tfoot.textContent = `Total price ${totalPrice}`;
 }
 
 booksTbody.onclick = e => { // el listener click se le ha puesto al tbody completo
     // antes definimos el array books con let para poder utilizar filter
     if (e.target.tagName === "BUTTON") {
-        books = books.filter(book => book.id != e.target.id); // e.target.id (id del botón). Eliminamos un libro. Devuelve 
+        displayedBooks = displayedBooks.filter(book => book.id != e.target.id); // e.target.id (id del botón). Eliminamos un libro. Devuelve 
         // todos los libros menos aquel que tenga ese id
         updateTable();// volvemos a pintar la tabla
     }
@@ -158,25 +169,48 @@ updateTable(); // estado inicial
 
 addBookButton.addEventListener("click", e => {
 
-    e.preventDefault(); // preventDefault(): todo el comportamiento por defecto en el html me lo quita
-    // Evita que recargue la página el formulario
-    
-    const newId = books[books.length-1].id + 1; // accedo al último libro del array books y le sumo 1
 
-    books.push(new Book(
-        newId, 
-        titleInput.value, 
-        authorInput.value, 
-        salesInput.value, 
-        priceInput.value)
-    );
+}); 
 
-    updateTable(); // volvemos a pintar la tabla
+// Ejercicio 5
 
-    bookForm.reset(); // reseteamos el formulario (se vacían los inputs)
+let displayedBooks = books; // Esto se pondría debajo del array Books (segundo apartado). 
+// ver arriba. Se define una variable y se le asigna el array books para 
+// guardar el array a modificar sin que afecte al original y cuando se vuelva para atrás 
+// en la tabla no se pierdan los datos de la misma.
+
+const filterInput = document.getElementById("bookToFind");
+const priceHeader = document.getElementById("priceColumn");
+
+let ascendingOrder = true;
+
+filterInput.addEventListener("input", e => {
+    displayedBooks = books.filter(book => book.title.toLowerCase().includes(e.target.value.toLowerCase()));
+    updateTable(); 
+});
+
+// apartado 2
+priceHeader.style.cursor = "pointer";
+
+priceHeader.addEventListener ("click", e => {
+    ascendingOrder = !ascendingOrder;
+    displayedBooks.sort((book1, book2) => {
+        return ascendingOrder ? book1.price - book2.price 
+                              : book2.price - book1.price;
+    });
+
+    updateTable();
 });
 
  */
+
+
+
+
+
+
+
+ 
 
 
 
