@@ -21,7 +21,8 @@ const books = [
     new Book(10, "La danza de los tulipanes", "Ibon Martín", 20, 17),
 ];
 
-//let displayedBooks = books; // Para la opción planteada por el profesor
+//let displayedBooks = Array.from(books); // Para la opción planteada por el profesor
+// o también podemos hacer: let displayedBooks = [...books];
 
 const tBody = document.getElementById("information");
 const totalPrices = document.getElementById("totalPrices");
@@ -70,7 +71,9 @@ function addNewBook() {
     const author = document.getElementById("author");
     const sales = document.getElementById("sales");
     const price = document.getElementById("price");
-    books.push(new Book(id, title.value, author.value, sales.value, price.value)); // añado un nuevo libro al array
+    books.push(new Book(id, title.value, author.value, sales.value, Number(price.value))); // añado un nuevo libro al array
+    // price.value lo harcodeo a número para que al hacer la suma de los precios, si añades
+    // un libro nuevo te lo sume bien y no te lo añada al lado.
     updateTable(books); // vuelvo a pintar la tabla
     bookForm.reset(); // con reset restauro el formulario (básicamente vacío los inputs)
 }
@@ -168,7 +171,15 @@ booksTbody.onclick = e => { // el listener click se le ha puesto al tbody comple
 updateTable(); // estado inicial 
 
 addBookButton.addEventListener("click", e => {
+    e.preventDefault();
+    const newID = books[books.length-1].id + 1;
+    const newBook = new Book(newID, titleInput.value, authorInput.value,
+    salesInput.value, Number(priceInput.value));
+    books.push(newBook);
+    displayedBooks.push(newBook);
 
+    updateTable();
+    addBookButton.parentNode.reset();
 
 }); 
 
