@@ -83,7 +83,7 @@ employees = employees.filter(employee => employee.performance >= 0.3);
 console.log("8.1: Despedir a los que tengan un rendimiento menor a 0.3", employees);
 
 // Apartado 8.2
-let averageSalary = employees.reduce((salarySum, employee) => salarySum + employee.salary, 0) / employees.length; // employees.length = total de empleados
+let averageSalary = employees.reduce((salarySum, employee) => salarySum + employee.salary, 0) // valor inicial de la variable. No tienes forma de saber donde se empieza, por eso ponerlo a 0 / employees.length; // employees.length = total de empleados
 averageSalary = averageSalary.toFixed(2); // toFixed(2) te da dos decimales.
 console.log("8.2: Calcular el sueldo medio de la empresa", averageSalary);
 
