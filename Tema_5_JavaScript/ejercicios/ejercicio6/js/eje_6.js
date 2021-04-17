@@ -172,18 +172,20 @@ function login(e) {
 
     e.preventDefault(); // para evitar que se recargue la página
 
-    const userInfo = {
+    const userInfo = { // es el cuerpo de la petición, es decir, lo que
+        // se va a enviar en el post
         email: emailInput.value,
         password: passwordInput.value
     };
 
-    const config = {
+    const config = { // es la petición que se va a hacer
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(userInfo) // userInfo lo convertimos a string
+        body: JSON.stringify(userInfo) // userInfo lo convertimos a string 
+        // concretamente a un json
     };
 
-    fetch(LOGIN_URL, config)
+    fetch(LOGIN_URL, config) // fetch devuelve un objeto de tipo promesa
     .then(response => response.json())
     .then(data => data.error ? alert(data.error) : fetchAllUsers())
 }
@@ -192,6 +194,7 @@ async function fetchAllUsers() {
     
     let response = await fetch(USERS_URL);
     let data = await response.json(); // llamada para el número total de páginas
+    // (posiblemente solo se esté trayendo la primera página en este punto)
     
     let users = [];
 
@@ -204,6 +207,12 @@ async function fetchAllUsers() {
     usersList.innerHTML = "";
 
     users.forEach(user => usersList.innerHTML += `<li>${user.email}</li>`);
+    // alternativa:
+    // let usersListText = "";
+    // users.forEach(user => usersListText += `<li>${user.email}</li>`);
+    // usersList.innerHTML = usersListText;
+    // de esta manera haríamos solamente un acceso al DOM y no haría falta limpiar, es decir,
+    // el primer usersList.innerHTML = "", no haría falta ponerlo.
 }
 
 /* // Alternativa para recuperar todas las páginas de una API utilizando .then()
@@ -214,7 +223,7 @@ let users = [];
 function fetchAllUsersv2(URL) {
     fetch(URL)
     .then(response => response.json())
-    .then(data => {
+    .then(newData => {
         users = users.concat(newData.data);
 
         if (newData.page < newData.total_pages) {

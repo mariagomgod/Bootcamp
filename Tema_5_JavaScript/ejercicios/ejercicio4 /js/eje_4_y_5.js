@@ -149,7 +149,7 @@ function updateTable() {
             <td>${book.sales}</td>
             <td>${book.price}</td>
             <td
-                button class="btn btn-danger" id="${book.id}">Remove</button>
+                <button class="btn btn-danger" id="${book.id}">Remove</button>
             </td>
         </tr>`;
     });
