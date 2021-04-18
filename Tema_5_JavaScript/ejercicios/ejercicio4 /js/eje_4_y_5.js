@@ -44,7 +44,7 @@ function updateTable(books) {
 
         for (const propertyName in book) {
             const column = document.createElement("td"); // creo una columna
-            newRow.appendChild(column); // añado la fila a la columna
+            newRow.appendChild(column); // añado la columna a la fila correspondiente
             column.textContent = book[propertyName]; // pinto en la columna el valor de la propiedad correspondiente del libro
         }
 
@@ -171,15 +171,28 @@ booksTbody.onclick = e => { // el listener click se le ha puesto al tbody comple
 updateTable(); // estado inicial 
 
 addBookButton.addEventListener("click", e => {
-    e.preventDefault();
+    e.preventDefault(); // para que no se refresque la página por defecto y no se pierda lo que hay en la tabla
     const newID = books[books.length-1].id + 1;
-    const newBook = new Book(newID, titleInput.value, authorInput.value,
-    salesInput.value, Number(priceInput.value));
-    books.push(newBook);
-    displayedBooks.push(newBook);
+
+    books.push(new Book(
+        newId,
+        titleInput.value,
+        authorInput.value,
+        salesInput.value,
+        Number(priceInput.value))
+
+    );
+
+    displayedBooks.push(new Book ( // copia del array de books
+        newId,
+        titleInput.value,
+        authorInput.value,
+        salesInput.value,
+        Number(priceInput.value)) 
+    );
 
     updateTable();
-    addBookButton.parentNode.reset();
+    addBookButton.parentNode.reset(); // para vaciar todos los inputs
 
 }); 
 
