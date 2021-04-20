@@ -5,7 +5,7 @@ export default function List(props) {
            <ol>
                {
                    props.products.map(product => {
-                       return <li>{product.products}&nbsp;{product.brand}&nbsp;{product.price}€</li>
+                       return <li>{product.products}&nbsp;{product.brand}&nbsp;{product.model ? product.model + " " : ""}{product.price}€</li>
                    })
                }
            </ol>
