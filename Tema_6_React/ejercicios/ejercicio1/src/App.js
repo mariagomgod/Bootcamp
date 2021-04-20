@@ -1,4 +1,4 @@
-import Card, {SecondCard} from "./components/Card";
+import Card from "./components/Card";
 
 import './App.css';
 
