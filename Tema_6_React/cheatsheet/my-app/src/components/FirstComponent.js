@@ -1,18 +1,46 @@
 import { Fragment } from "react";
+import PropTypes from "prop-types";
 
 export default function FirstComponent(props) {
 
-    console.log(props, typeof props);
-    console.log(props.date);
+    //console.log(props, typeof props);
+    //console.log(props.date);
+
+    const mySimpleFunction = function (event) {
+        // Process event
+        console.log(event);
+    }
+    
+    const myFunction = function (bookID) {
+        return function (event) {
+            console.log(bookID, event.target);
+        }
+    };
 
     return (
         <Fragment>
             <h3>{props.title}</h3>
             <small>{props.date}</small>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur, consectetur?</p>
-            <button>Click me!</button>
+            <button onClick={myFunction(1)}>Eliminar Book1</button>
+            <button onClick={myFunction(2)}>Eliminar Book2</button>
+            <button onClick={mySimpleFunction}>Eliminar Book2</button>
+            {/*<button onClick={() => event => console.log(1, event)}>Toda la gestión inLine</button> */}
         </Fragment>
     )
+}
+
+FirstComponent.defaultProps = { // es una protección en caso de que no se hayan metido propiedades
+    //title: "Sin título",
+    date: "Sin fecha",
+    products: [],
+    
+}
+
+FirstComponent.propTypes = { // es una protección en caso de que no se hayan metido propiedades
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string,
+    products: PropTypes.array,
 }
 
 // export default FirstComponent; // alternativa
