@@ -1,36 +1,92 @@
 import { useState } from 'react';
 
-export default function Form() {
-    
-    const handleClick = function () {
-       
+export default function Form({ setContacts }) {
+
+   /*  const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [address, setAddress] = useState("");
+    const [zipCode, setZipCode] = useState("");
+    const [city, setCity] = useState("");
+
+    function handleName(e) {
+        setName(e.target.value);
     };
 
-    const [name, setName] = useState();
-    const [surname, setSurname] = useState();
-    const [address, setAddress] = useState();
-    const [city, setCity] = useState();
-    const [zipCode, setZipCode] = useState();
-    const [phoneNumber, setPhoneNumber] = useState();
-    
+    function handleSurname(e) {
+        setSurname(e.target.value);
+    };
+
+    function handlePhoneNumber(e) {
+        setPhoneNumber(e.target.value);
+    };
+
+    function handleAddress(e) {
+        setAddress(e.target.value);
+    };
+
+    function handleZipCode(e) {
+        setZipCode(e.target.value);
+    };
+
+    function handleCity(e) {
+        setCity(e.target.value);
+    }; */
+
+    const initialState = {
+        name: "",
+        surname: "",
+        address: "",
+        zipCode: "",
+        city: "",
+        phoneNumber: ""
+    };
+
+    const [form, setForm] = useState(initialState)
+
+    function handleInput(e) {
+        const inputName = e.target.id;
+        const newValue = e.target.value;
+
+        setForm({ ...form, ...{[inputName]: newValue} })
+    }
+
+    function submit(e) {
+       /*  e.preventDefault();
+
+        /* const newContact = {
+            name: name,
+            surname: surname,
+            address: address,
+            zipCode: zipCode,
+            city: city,
+            phoneNumber: phoneNumber
+        }; */
+
+        /* const newContact = {name, surname, address, zipCode, city, phoneNumber}; 
+        // Esto se puede hacer en lugar de lo de arriba cuando coincide una propiedad con el nombre del estado
+
+        setContacts(currentContacts => [...currentContacts, newContact]);
+
+        //e.target.reset();
+        setName("");
+        setSurname("");
+        setPhoneNumber("");
+        setAddress("");
+        setZipCode("");
+        setCity(""); */
+    }
+
     return (
-        <>
-            <h2>New contact</h2>
-            <form>
-                {
-                    <div>
-                        <input className="form-control w-50 m-auto" type="text" placeholder="Introduce the name" onChange={(event) => setName(event.target.value)}></input>
-                        <input className="form-control w-50 m-auto" type="text" placeholder="Introduce the surname" onChange={(event) => setSurname(event.target.value)}></input>
-                        <input className="form-control w-50 m-auto" type="text" placeholder="Introduce the address" onChange={(event) => setAddress(event.target.value)}></input>
-                        <input className="form-control w-50 m-auto" type="text" placeholder="Introduce the city" onChange={(event) => setCity(event.target.value)}></input>
-                        <input className="form-control w-50 m-auto" type="text" placeholder="Introduce the zipcode" onChange={(event) => setZipCode(event.target.value)}></input>
-                        <input className="form-control w-50 m-auto" type="text" placeholder="Introduce the phone number" onChange={(event) => setPhoneNumber(event.target.value)}></input>
-                        <button type="button" className="btn btn-success" onClick={handleClick}>Register</button>
-                    </div>
+        <form className="form-group" onSubmit={submit}>
+            <input className="form-control mb-3" type="text" name="name" value={form.name} onChange={handleInput} placeholder="Introduce your name" />
+            <input className="form-control mb-3" type="text" name="surname" value={form.surname} onChange={handleInput} placeholder="Introduce your surname" />
+            <input className="form-control mb-3" type="text" name="phoneNumber" value={form.phoneNumber} onChange={handleInput} placeholder="Introduce your phone number" />
+            <input className="form-control mb-3" type="text" name="address" value={form.address} onChange={handleInput} placeholder="Introduce your address" />
+            <input className="form-control mb-3" type="text" name="zipCode" value={form.zipCode} onChange={handleInput} placeholder="Introduce your zipcode" />
+            <input className="form-control mb-3" type="text" name="city" value={form.city} onChange={handleInput} placeholder="Introduce your city" />
+            <input type="submit" className="btn btn-success" value="Register" />
+        </form>
 
-                }
-            </form>
-        </>
     )
-
 }

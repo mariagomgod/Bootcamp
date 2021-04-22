@@ -1,30 +1,17 @@
-export default function ContactBook(props) {
-
-    const { contacts } = props;
-
+export default function ContactBook({ contacts }) {
     return (
-        <>
-            <div>
-                <h2>Contact List</h2>
-                <div className="row">
-                    {
-                        contacts.map(({ id, name, surname, address, city, zipCode, phoneNumber }) => {
-                            return <ul className="list-group col-4 text-left">
-                                <li className="list-group-item active">{id}</li>
-                                <li className="list-group-item">{name}</li>
-                                <li className="list-group-item">{surname}</li>
-                                <li className="list-group-item">{address}</li>
-                                <li className="list-group-item">{city}</li>
-                                <li className="list-group-item">{zipCode}</li>
-                                <li className="list-group-item">{phoneNumber}</li>
-                                <li className="list-group-item"><button type="button" className="btn btn-warning">Delete</button></li>
-                            </ul>
-                        })
-                    }
-                </div>
-            </div>
-
-        </>
+        <div className="row">
+            {contacts.map((contact, index) => {
+                return (
+                    <ul className="list-group mb-3 col-12 col-sm-6 col-xl-3" key={contact.phoneNumber}>
+                        <li className="list-group-item active">Contacto {index + 1}</li>
+                        <li className="list-group-item">{contact.name}</li>
+                        <li className="list-group-item">{contact.surname}</li>
+                        <li className="list-group-item">{contact.phoneNumber}</li>
+                        <li className="list-group-item">{contact.address}, {contact.zipCode}, {contact.city}</li>
+                    </ul>
+                );
+            })}
+        </div>
     )
-
 }
