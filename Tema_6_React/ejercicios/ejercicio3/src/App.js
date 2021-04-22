@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="container">
       <h2 className="my-4">Contact Book</h2>
-      <ContactBook contacts={contacts} /> {/* paso el array por props al componente agenda */}
+      <ContactBook contacts={contacts} setContacts={setContacts} /> {/* paso el array por props y la función setContacts al componente agenda */}
       <h2 className="my-4">New Contact</h2>
       <Form setContacts={setContacts} /> 
 

@@ -1,4 +1,9 @@
-export default function ContactBook({ contacts }) {
+export default function ContactBook({ contacts, setContacts }) {
+
+    function removeContact(phoneNumber) {
+        setContacts(currentContacts => currentContacts.filter(contact => contact.phoneNumber !== phoneNumber));
+    }
+
     return (
         <div className="row">
             {contacts.map((contact, index) => {
@@ -9,6 +14,9 @@ export default function ContactBook({ contacts }) {
                         <li className="list-group-item">{contact.surname}</li>
                         <li className="list-group-item">{contact.phoneNumber}</li>
                         <li className="list-group-item">{contact.address}, {contact.zipCode}, {contact.city}</li>
+                        <li className="list-group-item">
+                            <button type="button" className="btn btn-warning" onClick={() => removeContact(contact.phoneNumber)}>Delete</button>
+                        </li>
                     </ul>
                 );
             })}

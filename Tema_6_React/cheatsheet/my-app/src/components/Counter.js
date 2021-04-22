@@ -11,7 +11,7 @@ export default function Counter() {
 
     const handleClick = function () {
         if (count < 10) {
-            setCount(count + 1);
+            setCount(count + 1); // setCount(currentCount => currentCount + 1);
         }
     };
 
