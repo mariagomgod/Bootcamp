@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 export default function Counter() {
 
     //const state = useState(0); // El 0 es el valor inicial

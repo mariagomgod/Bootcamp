@@ -64,6 +64,15 @@ export default function Form({ setContacts }) {
             phoneNumber: phoneNumber
         };
 
+        /* const newContact = {
+            name: form.name,
+            surname: form.surname,
+            address: form.address,
+            zipCode: form.zipCode,
+            city: form.city,
+            phoneNumber: form.phoneNumber
+        }; */
+
         //const newContact = {name, surname, address, zipCode, city, phoneNumber}; 
         // Esto se puede hacer en lugar de lo de arriba cuando coincide una propiedad con el nombre del estado
 
