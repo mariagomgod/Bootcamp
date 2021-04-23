@@ -1,20 +1,24 @@
 import './App.css';
-import ToDos from "./components/ToDos";
+import ToDosList from "./components/ToDosList";
 import Input from "./components/Input";
+import { useEffect, useState } from "react";
 
 function App() {
 
-  const URL = "https://raw.githubusercontent.com/BC-FSWD/todo-list/master/todo-list.json";
+  const [toDoList, setToDoList] = useState([]);
 
-  fetch(URL)
-  .then(response => response.json())
-  .then(data => console.log(data));
-  
+  useEffect(() => {
+    const URL = "https://raw.githubusercontent.com/BC-FSWD/todo-list/master/todo-list.json";
+    fetch(URL)
+      .then(response => response.json())
+      .then(data => setToDoList(data.slice(0, 20)));
+  }, [])
+
   return (
     <div className="App">
       <h2 className="my-4">Todo List</h2>
-     <ToDos />
-     <Input />
+      <ToDosList toDoList={toDoList} setToDoList={setToDoList}/>
+      <Input />
     </div>
   );
 }
