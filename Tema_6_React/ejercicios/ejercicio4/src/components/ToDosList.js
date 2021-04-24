@@ -6,7 +6,7 @@ export default function ToDosList({ toDoList, setToDoList }) {
         setToDoList(currentState => currentState.map((toDo, i) => {
             if (i === index) {
                 const newToDo = {...toDo}; // tenemos que hacer una copia porque no podemos mutar directamente
-                // el estado en React, pues sino el evento onClick se dispara dos veces, es decir, la 
+                // un estado en React, pues sino el evento onClick se dispara dos veces, es decir, la 
                 // primera vez se completaba la tarea y la segunda no, con lo que el estado de la tarea se 
                 // quedaba igual que al principio (sin completar)
                 newToDo.completed = !toDo.completed; // hacemos un toggle
