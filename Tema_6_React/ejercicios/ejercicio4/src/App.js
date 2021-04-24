@@ -1,6 +1,6 @@
 import './App.css';
-import ToDosList from "./components/ToDosList";
 import Input from "./components/Input";
+import ToDosList from "./components/ToDosList";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
   return (
     <div className="App">
       <h2 className="my-4">Todo List</h2>
+      <Input setToDoList={setToDoList}/>
       <ToDosList toDoList={toDoList} setToDoList={setToDoList}/>
-      <Input />
     </div>
   );
 }
