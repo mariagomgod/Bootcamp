@@ -11,7 +11,8 @@ function App() {
     const URL = "https://raw.githubusercontent.com/BC-FSWD/todo-list/master/todo-list.json";
     fetch(URL)
       .then(response => response.json())
-      .then(data => setToDoList(data.slice(0, 20)));
+      .then(data => setToDoList(data.slice(0, 20))); // Actualizamos el estado de la lista 
+      // con los 20 primeros elementos.
   }, [])
 
   return (
