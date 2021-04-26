@@ -1,4 +1,5 @@
 import './App.css';
+// import {useFetch} from "./hooks/useFetch";
 import Input from "./components/Input";
 import ToDosList from "./components/ToDosList";
 import { useEffect, useState } from "react";
@@ -14,6 +15,9 @@ function App() {
       .then(data => setToDoList(data.slice(0, 20))); // Actualizamos el estado de la lista 
       // con los 20 primeros elementos.
   }, [])
+
+  // useFetch(URL, setToDoList); // es lo mismo que lo de arriba pero con nuestro
+  // estado que nos hemos creado personalizado (mezcla de useState y useEffect)
 
   return (
     <div className="App">

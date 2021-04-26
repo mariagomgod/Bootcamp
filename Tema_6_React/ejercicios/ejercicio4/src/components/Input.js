@@ -19,11 +19,17 @@ export default function Input( { setToDoList }) {
         // estados
 
         e.target.reset(); // vaciamos el input
+
+        // Otra opción para vaciar el input:
+        // setToDoTitle("");
     }
 
     return (
         <form className="form-group" onSubmit={submit}>
-           <input className="form-control mb-4 w-50 m-auto" type="text" placeholder="Introduce a new To Do" onChange={e => setToDoTitle(e.target.value)}/> 
+           <input className="form-control mb-4 w-50 m-auto" type="text" placeholder="Introduce a new To Do" 
+                  onChange={e => setToDoTitle(e.target.value)}/> 
+                {/* value={toDoTitle} se añadiría justo detrás del setToDoTitle(e.target.value)} 
+                si utilizamos la opción setToDoTitle("") para vaciar el input */}
         </form>
     )
 }

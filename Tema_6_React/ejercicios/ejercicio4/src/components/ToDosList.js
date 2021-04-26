@@ -13,8 +13,20 @@ export default function ToDosList({ toDoList, setToDoList }) {
                 return newToDo;
             }
             return toDo; // se devuelve el objeto tal cual
+
+            // Opción con un ternario:
+            //return i === index ? {...toDo, completed : !toDo.completed} : toDo;
         }));
     }
+
+    /* Otra opción del toggle planteada por el profesor.
+    const toggleCompleted = index => {
+        if (e.target.tagName !== "BUTTON") {
+        const newTodos = [...toDoList];
+        newTodos[index].completed = !newTodos[index].completed;
+        setToDoList(newTodos);
+        }
+    } */
 
     const removeToDo = index => setToDoList(currentState => currentState.filter((toDo, i) => i !== index));
 
