@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from "react";
+import { GlobalContext } from "../App";
 
-export default function Form({ setContacts }) {
+export default function Form(/* { setContacts } */) {
+
+    const [setContacts] = useContext(GlobalContext);
 
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
@@ -79,12 +82,12 @@ export default function Form({ setContacts }) {
         setContacts(currentContacts => [...currentContacts, newContact]);
 
         e.target.reset();
-       /*  setName("");
-        setSurname("");
-        setPhoneNumber("");
-        setAddress("");
-        setZipCode("");
-        setCity(""); */
+        /*  setName("");
+         setSurname("");
+         setPhoneNumber("");
+         setAddress("");
+         setZipCode("");
+         setCity(""); */
     }
 
     return (
@@ -97,16 +100,17 @@ export default function Form({ setContacts }) {
              <input className="form-control mb-3" type="text" name="city" value={form.city} onChange={handleCity} placeholder="Introduce your city" />
              <input type="submit" className="btn btn-success" value="Register" />
             </form> */
-
-        <form className="form-group" onSubmit={submit}>
-            <input className="form-control mb-3" type="text" name="name" onChange={handleName} placeholder="Introduce your name" required/>
-            <input className="form-control mb-3" type="text" name="surname" onChange={handleSurname} placeholder="Introduce your surname" required/>
-            <input className="form-control mb-3" type="text" name="phoneNumber" onChange={handlePhoneNumber} placeholder="Introduce your phone number" required/>
-            <input className="form-control mb-3" type="text" name="address" onChange={handleAddress} placeholder="Introduce your address" required/>
-            <input className="form-control mb-3" type="text" name="zipCode" onChange={handleZipCode} placeholder="Introduce your zipcode" required/>
-            <input className="form-control mb-3" type="text" name="city" onChange={handleCity} placeholder="Introduce your city" required/>
-            <input type="submit" className="btn btn-success" value="Register" />
-        </form>
-
+        <div>
+            <h2 className="my-4">New Contact</h2>
+            <form className="form-group" onSubmit={submit}>
+                <input className="form-control mb-3" type="text" name="name" onChange={handleName} placeholder="Introduce your name" required />
+                <input className="form-control mb-3" type="text" name="surname" onChange={handleSurname} placeholder="Introduce your surname" required />
+                <input className="form-control mb-3" type="text" name="phoneNumber" onChange={handlePhoneNumber} placeholder="Introduce your phone number" required />
+                <input className="form-control mb-3" type="text" name="address" onChange={handleAddress} placeholder="Introduce your address" required />
+                <input className="form-control mb-3" type="text" name="zipCode" onChange={handleZipCode} placeholder="Introduce your zipcode" required />
+                <input className="form-control mb-3" type="text" name="city" onChange={handleCity} placeholder="Introduce your city" required />
+                <input type="submit" className="btn btn-success" value="Register" />
+            </form>
+        </div>
     )
 }

@@ -1,6 +1,10 @@
 import './ToDosList.css';
+import { useContext } from "react";
+import { GlobalContext } from "../App";
 
-export default function ToDosList({ toDoList, setToDoList }) {
+export default function ToDosList(/*  { toDoList, setToDoList } */ ) {
+
+    const [toDoList, setToDoList] = useContext(GlobalContext);
 
     const toggleCompleted = index => {
         setToDoList(currentState => currentState.map((toDo, i) => {
@@ -28,7 +32,12 @@ export default function ToDosList({ toDoList, setToDoList }) {
         }
     } */
 
-    const removeToDo = index => setToDoList(currentState => currentState.filter((toDo, i) => i !== index));
+    const removeToDo = (e, index) => {
+
+        e.stopPropagation(); // para evitar que el evento de click se dispare en el botón y en el li
+
+        setToDoList(currentState => currentState.filter((toDo, i) => i !== index));
+    };
 
     return (
         <ul className="list-group text-left">
@@ -41,7 +50,7 @@ export default function ToDosList({ toDoList, setToDoList }) {
                     //lista de clases se quedará igual (no tiene efecto).
                         onClick={() => toggleCompleted(index)}>{index}: {toDo.title}
                         <button type="button" className="float-right justify-content-space-between btn btn-danger" 
-                        onClick={() => removeToDo(index)}>x</button>
+                        onClick={(e) => removeToDo(e, index)}>x</button>
                     </li>
                 );
             })}

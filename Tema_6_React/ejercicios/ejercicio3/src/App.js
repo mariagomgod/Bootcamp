@@ -1,8 +1,9 @@
 import './App.css';
 import Form from './components/Form';
 import ContactBook from './components/ContactBook';
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 
+export const GlobalContext = createContext({});
 
 function App() {
 
@@ -15,14 +16,17 @@ function App() {
   const [contacts, setContacts] = useState(initialState); /* Creo un estado para los contactos
   y como estado inicial le paso el array initialState (contactos iniciales)*/
 
-  
+
   return (
     <div className="container">
-      <h2 className="my-4">Contact Book</h2>
-      <ContactBook contacts={contacts} setContacts={setContacts} /> {/* paso el array por props y la función setContacts al componente agenda */}
+      {/* <h2 className="my-4">Contact Book</h2>
+      <ContactBook contacts={contacts} setContacts={setContacts} /> // paso el array por props y la función setContacts al componente agenda 
       <h2 className="my-4">New Contact</h2>
-      <Form setContacts={setContacts} /> 
-
+      <Form setContacts={setContacts} /> */}
+      <GlobalContext.Provider value={[setContacts, contacts]}>
+        <ContactBook />
+        <Form />
+      </GlobalContext.Provider>
     </div>
   );
 }

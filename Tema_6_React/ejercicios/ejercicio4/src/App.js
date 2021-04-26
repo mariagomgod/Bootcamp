@@ -2,7 +2,9 @@ import './App.css';
 // import {useFetch} from "./hooks/useFetch";
 import Input from "./components/Input";
 import ToDosList from "./components/ToDosList";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+
+export const GlobalContext = createContext({});
 
 function App() {
 
@@ -13,7 +15,7 @@ function App() {
     fetch(URL)
       .then(response => response.json())
       .then(data => setToDoList(data.slice(0, 20))); // Actualizamos el estado de la lista 
-      // con los 20 primeros elementos.
+    // con los 20 primeros elementos.
   }, [])
 
   // useFetch(URL, setToDoList); // es lo mismo que lo de arriba pero con nuestro
@@ -22,8 +24,12 @@ function App() {
   return (
     <div className="App">
       <h2 className="my-4">Todo List</h2>
-      <Input setToDoList={setToDoList}/>
-      <ToDosList toDoList={toDoList} setToDoList={setToDoList}/>
+      {/* <Input setToDoList={setToDoList}/>
+      <ToDosList toDoList={toDoList} setToDoList={setToDoList}/> */}
+      <GlobalContext.Provider value={[toDoList, setToDoList]}>
+        <Input />
+        <ToDosList />
+      </GlobalContext.Provider>
     </div>
   );
 }
