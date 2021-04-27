@@ -1,8 +1,6 @@
 import Card from "../components/Card";
 
-import './App.css';
-
-function App() {
+function Ejercicio1() {
   return (
     <div>
       <Card 
@@ -23,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default Ejercicio1;

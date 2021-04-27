@@ -1,6 +1,6 @@
 import './ToDosList.css';
 import { useContext } from "react";
-import { GlobalContext } from "../App";
+import { GlobalContext } from "../pages/Ejercicio4";
 
 export default function ToDosList(/*  { toDoList, setToDoList } */ ) {
 

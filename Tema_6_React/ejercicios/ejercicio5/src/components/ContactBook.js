@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { GlobalContext } from "../App";
+import { GlobalContext } from "../pages/Ejercicio3";
 
 export default function ContactBook(/* { contacts, setContacts } */) {
 

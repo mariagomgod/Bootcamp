@@ -1,4 +1,3 @@
-import './App.css';
 // import {useFetch} from "./hooks/useFetch";
 import Input from "../components/Input";
 import ToDosList from "../components/ToDosList";
@@ -6,7 +5,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const GlobalContext = createContext({});
 
-function App() {
+function Ejercicio4() {
 
   const [toDoList, setToDoList] = useState([]);
 
@@ -34,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default Ejercicio4;

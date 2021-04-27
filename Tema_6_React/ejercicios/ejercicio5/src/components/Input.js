@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { GlobalContext } from "../App";
+import { GlobalContext } from "../pages/Ejercicio4";
 
 export default function Input( /* { setToDoList } */ ) {
 

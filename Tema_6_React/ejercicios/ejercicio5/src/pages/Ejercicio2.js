@@ -1,7 +1,7 @@
 import Shop from "../components/Shop";
-import './App.css';
 
-function App() {
+
+function Ejercicio2() {
   return (
     <div className="App">
     <Shop />
@@ -9,4 +9,4 @@ function App() {
   );
 }
 
-export default App;
+export default Ejercicio2;
