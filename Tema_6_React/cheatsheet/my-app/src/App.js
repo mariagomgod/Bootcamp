@@ -4,6 +4,7 @@ import Counter from "./components/Counter";
 import UseEffectComponent from "./components/UseEffectComponent";
 import UseContextComponent from './components/UseContextComponent';
 import { createContext, useState } from "react";
+import Router from "./Router";
 
 export const GlobalContext = createContext();
 
@@ -20,9 +21,11 @@ function App() {
       <FirstComponent title="Otro Título" />
       <SecondComponent />
       <ThirdComponent />  */}
-      <GlobalContext.Provider value="Soy un string guardado en un contexto">
+     {/*  <GlobalContext.Provider value="Soy un string guardado en un contexto">
       <UseContextComponent />
-      </GlobalContext.Provider>
+      </GlobalContext.Provider> */}
+
+      <Router />
     </div>
   );
 }
