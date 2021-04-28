@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <nav className="navbar navbar-dark bg-dark nav-fill">
-          <NavLink to="/ejercicio1" className="nav-item nav-link" activeClassName="selected">Ejercicio 1</NavLink>
+          <NavLink exact to="/ejercicio1" className="nav-item nav-link" activeClassName="selected">Ejercicio 1</NavLink>
           <NavLink to="/ejercicio2" className="nav-item nav-link" activeClassName="selected">Ejercicio 2</NavLink>
           <NavLink to="/ejercicio3" className="nav-item nav-link" activeClassName="selected">Ejercicio 3</NavLink>
           <NavLink to="/ejercicio4" className="nav-item nav-link" activeClassName="selected">Ejercicio 4</NavLink>
@@ -21,10 +21,10 @@ function App() {
 
         <Switch>
           <Route exact path="/" component={Ejercicio1} />
-          <Route exact path="/ejercicio1" component={Ejercicio1} />
-          <Route exact path="/ejercicio2" component={Ejercicio2} />
-          <Route exact path="/ejercicio3" component={Ejercicio3} />
-          <Route exact path="/ejercicio4" component={Ejercicio4} />
+          <Route path="/ejercicio1" component={Ejercicio1} />
+          <Route path="/ejercicio2" component={Ejercicio2} />
+          <Route path="/ejercicio3" component={Ejercicio3} />
+          <Route path="/ejercicio4" component={Ejercicio4} />
 
           <Route component={Error} />
         </Switch>
