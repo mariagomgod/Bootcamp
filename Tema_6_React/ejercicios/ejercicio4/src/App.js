@@ -18,7 +18,7 @@ function App() {
     // con los 20 primeros elementos.
   }, [])
 
-  // useFetch(URL, setToDoList); // es lo mismo que lo de arriba pero con nuestro
+  // useFetch(URL, setToDoList, 20); // es lo mismo que lo de arriba pero con nuestro
   // estado que nos hemos creado personalizado (mezcla de useState y useEffect)
 
   return (

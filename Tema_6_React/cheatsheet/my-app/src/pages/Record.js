@@ -5,8 +5,8 @@ export default function Record() {
 
     const [userData, setUserData] = useState({});
 
-    const { user } = useParams(); // Mediante useParams() accedes a la propiedad del 
-    //objeto que tu quieres, en este caso user.
+    const { user } = useParams(); // Mediante useParams() accedes al parámetro
+    // de la ruta, en este caso user.
 
     const USERS_URL = "https://reqres.in/api/users/";
 
