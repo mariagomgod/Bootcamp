@@ -1,4 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
 .movie-item > img {
   width: 30px;
   float: left;
+}
+
+.copyright{
+  position: absolute;
+  right: 15px;
+  margin: 0;
+} 
+
+.ul, .nav-item, .copyright {
+  color: white;
+  font-weight: bold;
+}
+
+.ul {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.movie-item > img {
+  width: 150px;
+  float: left;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.upcoming {
+  padding: 0 16vw;
+}
+
+.movie {
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.movie:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.header {
+  background-image: url(../images/title.png);
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 60px;
+  margin: 1vw auto;
+}
+
+.header span {
+  display: none;
 }
