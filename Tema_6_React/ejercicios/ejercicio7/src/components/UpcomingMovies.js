@@ -13,6 +13,13 @@ export default function UpcomingMovies() {
         // con los 20 primeros elementos.
     }, [])
 
+    function formatDate(dateString) {
+
+        const date = new Date(dateString);
+
+        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+    }
+
     return (
         <div className="upcoming">
             <ul className="list-group mb-3">
@@ -21,8 +28,8 @@ export default function UpcomingMovies() {
                         <li className="list-group-item movie-item border-dark" key={index}>
                             <img src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} alt=""></img>
                             <a className="movie" href={`/movie/${movie.id}`}>{movie.original_title}</a>
-                            <p>{movie.overview}</p>
-                            <p>Upcoming date: {movie.release_date}</p>
+                            <p className="overview">{movie.overview}</p>
+                            <p className="date"><b>Upcoming date: {formatDate(movie.release_date)}</b></p>
                         </li>
                     );
                 })}
