@@ -35,7 +35,7 @@ export default function UpcomingMovies() {
             <div className="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
                 <div className="btn-group mr-2" role="group" aria-label="First group">
                     {
-                        Array(totalPages).map((elem, i) => {
+                        [...Array(totalPages)].map((elem, i) => {
                             return (
                                 <button type="button" key={i + 1} class="btn btn-secondary" onClick={() => setCurrentPage(i + 1)}>{i + 1}</button>
                             );
