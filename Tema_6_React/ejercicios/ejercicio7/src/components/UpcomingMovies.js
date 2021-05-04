@@ -40,7 +40,7 @@ export default function UpcomingMovies() {
                                 <button type="button" key={i + 1} class="btn btn-secondary" onClick={() => setCurrentPage(i + 1)}>{i + 1}</button>
                             );
                         })
-                    } {/* Creo un array con tantas posiciones vacías como se le indique en el constructor (totalPages).
+                    } {/* Creo un array de tantos elementos como páginas hubiera en total.
                           Los valores los descarto porque lo que importa es saber el índice de cada uno para pintar el botón con 
                           dicho índice + 1. */}
                 </div>
