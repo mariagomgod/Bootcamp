@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 04-05-2021 a las 14:00:26
+-- Tiempo de generación: 04-05-2021 a las 18:41:21
 -- Versión del servidor: 8.0.23-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3
 
@@ -36,6 +36,14 @@ CREATE TABLE `bikes` (
   `price` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Volcado de datos para la tabla `bikes`
+--
+
+INSERT INTO `bikes` (`id`, `model`, `brand`, `type`, `price`) VALUES
+(1, 'tango', 'asics', 'mountain', 780),
+(3, 'basic', 'adidas', 'trekking', 620);
+
 -- --------------------------------------------------------
 
 --
@@ -51,6 +59,15 @@ CREATE TABLE `clients` (
   `email` varchar(64) DEFAULT NULL,
   `phone_number` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `clients`
+--
+
+INSERT INTO `clients` (`id`, `dni`, `bike_id`, `name`, `lastname`, `email`, `phone_number`) VALUES
+(1, '26358478F', 1, 'Laura', 'Gomez', 'laura@hotmail.com', '952874563'),
+(2, '26586374C', 3, 'Roberto', 'Leal', 'r86@gmail.com', '640121217'),
+(3, '26485917V', 1, 'Rosa', 'Diaz', 'rosa34@yahoo.es', '650784120');
 
 -- --------------------------------------------------------
 
@@ -88,7 +105,9 @@ CREATE TABLE `parts` (
 --
 
 INSERT INTO `parts` (`id`, `name`, `price`) VALUES
-(1, 'cuadro', 60);
+(1, 'cuadro', 38),
+(2, 'saddle', 35),
+(3, 'wheel', 30);
 
 -- --------------------------------------------------------
 
@@ -103,6 +122,15 @@ CREATE TABLE `repairs` (
   `cost` float DEFAULT NULL,
   `time_spent` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `repairs`
+--
+
+INSERT INTO `repairs` (`id`, `client_id`, `part_id`, `cost`, `time_spent`) VALUES
+(1, 1, 3, 60, 2.5),
+(2, 2, 1, 125, 6),
+(3, 3, 2, 75, 4.5);
 
 --
 -- Índices para tablas volcadas
@@ -150,13 +178,13 @@ ALTER TABLE `repairs`
 -- AUTO_INCREMENT de la tabla `bikes`
 --
 ALTER TABLE `bikes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `offers`
@@ -168,13 +196,13 @@ ALTER TABLE `offers`
 -- AUTO_INCREMENT de la tabla `parts`
 --
 ALTER TABLE `parts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `repairs`
 --
 ALTER TABLE `repairs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
