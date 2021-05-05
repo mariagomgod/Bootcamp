@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 04-05-2021 a las 18:41:21
+-- Tiempo de generación: 05-05-2021 a las 13:54:47
 -- Versión del servidor: 8.0.23-0ubuntu0.20.04.1
 -- Versión de PHP: 7.4.3
 
@@ -42,7 +42,10 @@ CREATE TABLE `bikes` (
 
 INSERT INTO `bikes` (`id`, `model`, `brand`, `type`, `price`) VALUES
 (1, 'tango', 'asics', 'mountain', 780),
-(3, 'basic', 'adidas', 'trekking', 620);
+(3, 'basic', 'adidas', 'trekking', 620),
+(4, 'Vista', 'Cube', 'Mountain', 1500),
+(5, 'Slash', 'Trek', 'Mountain', 3699),
+(6, 'ECaliber', 'Trek', 'Road', 9999);
 
 -- --------------------------------------------------------
 
@@ -65,9 +68,11 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `dni`, `bike_id`, `name`, `lastname`, `email`, `phone_number`) VALUES
-(1, '26358478F', 1, 'Laura', 'Gomez', 'laura@hotmail.com', '952874563'),
-(2, '26586374C', 3, 'Roberto', 'Leal', 'r86@gmail.com', '640121217'),
-(3, '26485917V', 1, 'Rosa', 'Diaz', 'rosa34@yahoo.es', '650784120');
+(1, '26358478F', 1, 'Laura', 'Gomez', 'laura@hotmail.com', '586985471'),
+(2, '26586374C', 3, 'Roberto', 'Leal', 'r86@gmail.com', '+5 2587456'),
+(3, '26485917V', 1, 'Rosa', 'Diaz', 'rosa34@yahoo.es', '+1 258689'),
+(4, '12564874X', 1, 'John', 'Smith', 'jsmith@gmail.com', '586985471'),
+(5, '25471528D', 3, 'Martha', 'Doe', 'mdoe@gmail.com', '586985471');
 
 -- --------------------------------------------------------
 
@@ -86,7 +91,10 @@ CREATE TABLE `offers` (
 --
 
 INSERT INTO `offers` (`id`, `part_id`, `discount`) VALUES
-(1, 1, 25);
+(1, 1, 25),
+(2, 2, 50),
+(3, 3, 5),
+(4, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -105,9 +113,12 @@ CREATE TABLE `parts` (
 --
 
 INSERT INTO `parts` (`id`, `name`, `price`) VALUES
-(1, 'cuadro', 38),
+(1, 'cuadro', 120),
 (2, 'saddle', 35),
-(3, 'wheel', 30);
+(3, 'wheel', 30),
+(4, 'Tires', 50),
+(5, 'Handlebar', 75),
+(6, 'Brakes', 45);
 
 -- --------------------------------------------------------
 
@@ -130,7 +141,13 @@ CREATE TABLE `repairs` (
 INSERT INTO `repairs` (`id`, `client_id`, `part_id`, `cost`, `time_spent`) VALUES
 (1, 1, 3, 60, 2.5),
 (2, 2, 1, 125, 6),
-(3, 3, 2, 75, 4.5);
+(3, 3, 2, 75, 4.5),
+(4, 1, 1, 100, 3),
+(5, 1, 2, 150, 2),
+(6, 2, 4, 250, 5),
+(7, 4, 3, 170, 4),
+(8, 3, 3, 170, 4),
+(9, 3, 2, 50, 4);
 
 --
 -- Índices para tablas volcadas
@@ -178,31 +195,31 @@ ALTER TABLE `repairs`
 -- AUTO_INCREMENT de la tabla `bikes`
 --
 ALTER TABLE `bikes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `parts`
 --
 ALTER TABLE `parts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `repairs`
 --
 ALTER TABLE `repairs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
@@ -212,7 +229,7 @@ ALTER TABLE `repairs`
 -- Filtros para la tabla `clients`
 --
 ALTER TABLE `clients`
-  ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`bike_id`) REFERENCES `bikes` (`id`);
+  ADD CONSTRAINT `clients_ibfk_1` FOREIGN KEY (`bike_id`) REFERENCES `bikes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `offers`
