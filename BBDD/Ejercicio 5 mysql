@@ -1,0 +1,13 @@
+-- EJERCICIO 5 MYSQL 
+
+-- APARTADO 1
+
+SELECT COUNT(*) FROM sales;
+
+-- APARTADO 2
+
+SELECT MAX(price), AVG(price), SUM(price) FROM sales;
+
+-- APARTADO 3
+
+SELECT vehicle_name, sales.vehicle_id FROM vehicles JOIN sales ON sales.vehicle_id = vehicles.vehicle_id WHERE price = (SELECT MIN(price) FROM sales);
