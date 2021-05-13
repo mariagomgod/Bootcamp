@@ -1,50 +1,42 @@
+require("./config/config");
+
 const express = require("express");
 const app = express();
 
 // Antes de los endpoints, usamos los middlewares
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    //res.json({ message: "Petición GET recibida correctamente" });
-    res.json({
-        "name": "Oliver",
-        "profesion": "Full Stack Developer",
-        "age": 25,
-        "address": {
-            "street": "Larios Street, 15",
-            "city": "Málaga"
-        }
-    });
+let users = [];
+
+app.get("/users", (req, res) => {
+    const user = {name: "John", email: "john@gmail.com"}
+    res.json({ ok: true, results: users });
 });
 
-app.put("/:id", (req, res) => {
-    let id = req.params.id;
-    res.json({ message: `Petición PUT con parámetro : ${id}`});
+app.put("/users/:id", (req, res) => {
+    const id = req.params.id;
+    res.json({ id });
 });
 
-app.delete("/:id", (req, res) => {
-    let id = req.params.id;
-    res.json({ message: `Petición DELETE con parámetro : ${id}`});
+app.delete("/users/:id", (req, res) => {
+    const id = req.params.id;
+
+    const removedUser = users.splice(id, 1);
+
+    res.status(200).json(removedUser);
 });
 
-app.post("/", (req, res) => {
-    let body = req.body;
+app.post("/users", (req, res) => {
+    const body = req.body; // necesita el middleware, definido arriba: app.use(express.json());
 
     if (body.username) {
-        //res.status(200).json({message: `Recibido username: ${body.username}`});
-        res.status(200).json({
-            "name": "Oliver",
-            "profesion": "Full Stack Developer",
-            "age": 25,
-            "address": {
-                "street": "Larios Street, 15",
-                "city": "Málaga"
-            }
-        });
-        
+        res.status(400).json({ ok: false, message: "Name is required" });
     } else {
-        res.status(400).json({ok: false, message: "El username es obligatorio"});
+        users.push(body);
+        res.status(201).json({ user: body });
     }
 });
 
-app.listen(3000);
+app.listen(process.env.PORT, () => {
+    console.log("Listening on port: ", process.env.PORT);
+});
