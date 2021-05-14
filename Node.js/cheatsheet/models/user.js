@@ -34,6 +34,16 @@ let userSchema = new Schema({
     }
 });
 
+userSchema.methods.toJSON = function() { // esta función sirve para que no me devuelva el password.
+    const user = this;
+
+    const userObject = user.toObject();
+
+    delete userObject.password;
+
+    return userObject;
+}
+
 userSchema.plugin(uniqueValidator, {message: "{PATH} should be unique"});
 
 module.exports = mongoose.model("User", userSchema);
