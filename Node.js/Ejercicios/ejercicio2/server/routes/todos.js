@@ -1,48 +1,75 @@
 const express = require("express");
 const router = express.Router();
-
-const User = require("../models/todo");
+const ramda = require("ramda");
+const Todo = require("../models/todo");
 
 router.get("/", (req, res) => {
-    // Similar al find de Mongo. Si el filtro está vacío,
-    // me devuelve todos los documentos de la colección.
-    User.find({}).exec((error, users) => {
+    Todo.find({"active": true}, {"__v": 0}).exec((error, todos) => {
         if (error) {
-            res.status(400).json({ ok: false, error });
+            res.status(500).json(error);
         } else {
-            res.status(200).json({ ok: true, users });
+            res.status(200).json(todos);
         }
-    })
-});
-
-router.get("/:id", (req, res) => {
-    let id = req.params.id;
-    res.json({ message: `Petición GET con parámetro : ${id}` });
+    });
 });
 
 router.post("/", (req, res) => {
+
     let body = req.body;
 
-    const user = new User({
-        username: body.username,
-        email: body.email,
-        password: body.password
+    let todo = new Todo({
+        title: body.title,
+        completed: body.completed,
+        active: body.active
     });
 
-    user.save((error, savedUser) => {
+    todo.save((error, newTodo) => {
         if (error) {
-            res.status(400).json({ ok: false, error });
+            res.status(400).json(error);
         } else {
-            res.status(201).json({ ok: true, savedUser });
+            res.status(200).json(newTodo);
         }
     });
+});
 
-    // if (body.username) {
-    //     res.status(200).json({message: `Recibido username: ${body.username}`});
+router.put("/:id", (req,res) => {
+    const id = req.params.id;
+    const body = ramda.pick(["title", "completed", "active"], req.body);
+    body.completed = !body.completed;
 
-    // } else {
-    //     res.status(400).json({ok: false, message: "El username es obligatorio"});
-    // }
+    Todo.findByIdAndUpdate(
+        id, 
+        body, 
+        { new: true, runValidators: true, context: "query" }, // options
+        (error, updateTodo) => {
+            if (error) {
+                res.status(400).json({ ok: false, error });
+            } else if (!updateTodo) {
+                res.status(404).json({ ok: false, error: "Todo not found"} );
+            } else {
+                res.status(200).json({ ok: true, updateTodo });
+            }
+        }
+    );
+});
+
+router.delete("/:id", (req,res) => {
+    const id = req.params.id;
+
+    Todo.findByIdAndUpdate(
+        id, 
+        { active: false }, 
+        { new: true, runValidators: true, context: "query" }, // options
+        (error, updateTodo) => {
+            if (error) {
+                res.status(400).json({ ok: false, error });
+            } else if (!updateTodo) {
+                res.status(404).json({ ok: false, error: "Todo not found"} );
+            } else {
+                res.status(200).json({ ok: true, updateTodo });
+            }
+        }
+    );
 });
 
 module.exports = router; // exportamos por defecto
