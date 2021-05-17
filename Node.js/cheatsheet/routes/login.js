@@ -1,7 +1,10 @@
+require("../config/config");
+
 const express = require("express");
 const router = express.Router();
-
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 const User = require("../models/user");
 
 router.post("/", (req, res) => {
@@ -21,7 +24,12 @@ router.post("/", (req, res) => {
                 error: {message: "Invalid password"}
             });
         } else {
-            res.status(200).json({ok: true, user: userDB});
+            const token = jwt.sign(
+                {user: userDB}, // payload
+                process.env.SEED,
+                {expiresIn: 20}
+            );
+            res.status(200).json({ok: true, token, user: userDB});
         }
     })
 });

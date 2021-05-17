@@ -5,8 +5,20 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../models/user");
+const verifyToken = require("../middlewares/auth");
 
-router.get("/", (req, res) => {
+const middleware1 = (req, res, next) => {
+    console.log("Hola desde el middleware1");
+    next(); // llama a la siguiente pieza de middleware
+}
+
+const middleware2 = (req, res, next) => {
+    console.log("Hola desde el middleware2");
+    next(); // llama a la siguiente pieza de middleware
+}
+
+router.get("/", verifyToken, (req, res) => {
+    console.log("Hola desde dentro del get");
     // Similar al find de Mongo. Si el filtro está vacío,
     // me devuelve todos los documentos de la colección.
     const PAGE_SIZE = 2;

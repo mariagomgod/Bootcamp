@@ -2,3 +2,6 @@
 // coja una existente o le asigne  el 3000 si no existiera
 
 process.env.PORT = process.env.PORT || 3000;
+
+//una forma de generar una semilla lo suficientemente aleaotoria
+process.env.SEED = process.env.SEED || "SECRET KEY";
