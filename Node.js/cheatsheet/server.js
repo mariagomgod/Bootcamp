@@ -11,8 +11,8 @@ const login = require("./routes/login");
 // Antes de los endpoints, usamos los middlewares
 app.use(express.json());
 
-app.use("/users", users);
-app.use("/login", login);
+app.use(require("./routes/index"));
+
 
 mongoose.connect("mongodb://localhost:27017/users", {
     useNewUrlParser: true,
