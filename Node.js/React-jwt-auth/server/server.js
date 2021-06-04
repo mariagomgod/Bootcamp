@@ -4,9 +4,10 @@ require("./config/config");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-
 const cors = require("cors");
-app.use(cors());
+
+app.use(express.json());
+app.use(cors())
 
 const users = require("./routes/users");
 const login = require("./routes/login");

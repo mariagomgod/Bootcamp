@@ -1,7 +1,4 @@
-import { NavLink, Route, Switch } from "react-router-dom";
-import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
-import Public from "../pages/Public";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
     return (
@@ -19,13 +16,6 @@ export default function Navbar() {
                     </li>
                 </ul>
             </nav>
-
-            <Switch>
-                <Route exact path="/" component={Login} />
-                <Route path="/login" component={Login} />
-                <Route path="/public" component={Public} />
-                <Route path="/dashboard" component={Dashboard} />
-            </Switch>
         </>
     )
 }

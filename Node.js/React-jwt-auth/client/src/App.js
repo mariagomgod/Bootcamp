@@ -1,12 +1,17 @@
-import { BrowserRouter as Router } from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Pages from "./pages/Pages";
+import AuthContextProvider from "./contexts/AuthContext";
 
 function App() {
   return (
     <div>
-      <Router>
-        <Navbar />
-      </Router>
+      <AuthContextProvider>
+        <Router>
+          <Navbar />
+          <Pages />
+        </Router>
+      </AuthContextProvider>
     </div>
   );
 }

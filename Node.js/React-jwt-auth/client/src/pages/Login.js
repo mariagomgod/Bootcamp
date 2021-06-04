@@ -1,9 +1,37 @@
+import { useHistory } from "react-router-dom";
+import { useForm } from "../hooks/useForm";
+import { LOGIN_URL } from "../config/config";
+import { useAuthContext } from "../contexts/AuthContext";
+
 export default function Login() {
 
-    function submit(e) {
+    const {logIn} = useAuthContext();
+    const history = useHistory();
+
+    const formInitialState = {email: "email@gmail.com", password: "1234"};
+    const [form, handleChange] = useForm(formInitialState);
+
+    const handleSubmit = async e => {
         e.preventDefault();
 
-        fetch('http://localhost:4000/login',
+        const options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(form)
+        }
+
+        const response = await fetch(LOGIN_URL, options); // Se puede utilizar fetch().then().then()
+        const data = await response.json();
+
+        if (response.status === 200) {
+            logIn(data.token, data.user);
+            history.push("/dashboard");
+        } else {
+            alert("Credenciales incorrectas")
+        }
+        
+
+        /* fetch('http://localhost:4000/login',
             {
                 method: 'POST',
                 headers: {
@@ -12,22 +40,16 @@ export default function Login() {
                 body: '{ "email": "mgg@gmail.com", "password": "1234"}'
             })
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => console.log(data)); */
     }
 
     return (
-        <div>
-            <form onSubmit={submit}>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
-                </div>
-    
-                <button type="submit" class="btn btn-primary">Submit</button>
+        <div className="d-flex justify-content-center pt-5">
+            <form onSubmit={handleSubmit} className="form-group w-50 bg-dark p-5 rounded">
+                <h3 className="text-light">Log in!</h3>
+                <input onChange={handleChange} value={form.email} name="email" type="email" className="form-control mb-3" placeholder="Introduce tu email" />
+                <input onChange={handleChange} value={form.password} name="password" type="password" className="form-control mb-3" placeholder="********" />
+                <input type="submit" className="btn btn-success" value="Iniciar sesión" />
             </form>
         </div>
     )
